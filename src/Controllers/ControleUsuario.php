@@ -35,6 +35,10 @@ class ControleUsuario {
         $modelo->inserirBD($usuario);
     }
 
+    public function paineldeControle() {
+        return $this->response->setContent($this->twig->render('PaineldeControle.html'));
+    }
+
     public function cadastroUsuario() {
         return $this->response->setContent($this->twig->render('CadastroUsuario.html'));
     }

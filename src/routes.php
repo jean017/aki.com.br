@@ -79,4 +79,8 @@ $rotas->add('salvarusuario', new Route('/salvarusuario', array('_controller' =>
     'Aki\Controllers\ControleUsuario',
     '_method' => 'salvarUsuario')));
 
+$rotas->add('paineldecontrole', new Route('/paineldecontrole', array('_controller' =>
+    'Aki\Controllers\ControleUsuario',
+    '_method' => 'paineldeControle')));
+
 return $rotas;
