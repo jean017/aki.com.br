@@ -1,0 +1,16 @@
+{
+    "name": "Aki",
+    "description" : "Projeto de PPI 2/ Aki",
+    "require" : {
+        "php" : ">=5.4.0",
+        "filp/whoops": "* dev-master",
+        "symfony/http-foundation": "dev-master",
+        "symfony/routing": "dev-master",
+        "twig/twig": "dev-master"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "Aki\\" : "src/"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.img-responsive, .footer, .footer-bottom{
+    background: #D3D3D3;
+}
+
+.nav navbar-nav{
+   font-size: 14px;
+}
+
+#menu1{
+    color: red;
+    font-size: 14px;
+}
+
+#nome{
+    color: orangered;
+}
