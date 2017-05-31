@@ -36,8 +36,10 @@ class ControleUsuario {
         $usuario = $modelo->Login($usuario);
 
         if ($usuario) {
+
             $usuario->senha = '';
-            $this->sessao->add("usuario", $usuario);
+            $this->sessao->add("usuario", $usuario->usuario);
+            $this->sessao->add("nome", $usuario->nome);
             $destino = "/paineldecontrole";
             $this->redireciona($destino);
         } else {
@@ -47,7 +49,7 @@ class ControleUsuario {
     }
 
     public function paineldeControle() {
-        return $this->response->setContent($this->twig->render('PaineldeControle.php'));
+        return $this->response->setContent($this->twig->render('PaineldeControle.php',  array ('fulano'=> $this->sessao->get("nome"))));
     }
 
     public function cadastroUsuario() {

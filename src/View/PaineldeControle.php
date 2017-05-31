@@ -21,7 +21,7 @@
 
         <div class="jumbotron">
             <div class="container">
-                <h1>Painel Administrativo</h1>
+                <h1>Painel Administrativo de, {{fulano}} </h1>
                 <div class="container">
                     <div class="row">                    
                         <p>Aqui você pode gerenciar suas empresas, deixando-a sempre com dados atualizados. </br> Além de seus dados pessoais de conta como email, usuário e senha.</p>                       

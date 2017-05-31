@@ -4,11 +4,11 @@ namespace Aki\Entity;
 
 class Usuario{
     
-    private $idUsuario;
-    private $usuario;
-    private $senha;
-    private $nome;
-    private $email;
+    public $idUsuario;
+    public $usuario;
+    public $senha;
+    public $nome;
+    public $email;
     
     function __construct() {
         
