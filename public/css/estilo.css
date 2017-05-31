@@ -1,14 +1,9 @@
-.img-responsive, .footer, .footer-bottom{
+.footer, .footer-bottom, .tela{
     background: #D3D3D3;
 }
 
-.nav navbar-nav{
-   font-size: 14px;
-}
-
-#menu1{
-    color: red;
-    font-size: 14px;
+.jumbotron{
+    background: #ffffff;
 }
 
 #nome{
