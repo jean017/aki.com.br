@@ -25,8 +25,6 @@
         <script src="../../js/npm.js"></script>
         <script src="../../js/scripts.js"></script>
 
-        <!--        <img src="../../img/pano.jpg" class="img-responsive" width="50" height="500">-->
-
         <div class="tela">
             </br>
             </br>

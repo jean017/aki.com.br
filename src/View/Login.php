@@ -40,12 +40,6 @@
                         </br>
                         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
                     </form>
-                    <?php 
-                        if(isset($_SESSION['loginErro'])){
-                            echo $_SESSION['loginErro'];
-                            unset($_SESSION['loginErro']);
-                        }
-                    ?>
                 </div>
                 <div class="col-md-4"></div>
             </div>
