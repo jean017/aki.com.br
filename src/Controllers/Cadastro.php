@@ -31,7 +31,7 @@ class Cadastro {
     }
 
     public function cadastroCategoria() {
-        return $this->response->setContent($this->twig->render('CadastroCategoria.html'));
+        return $this->response->setContent($this->twig->render('CadastroCategoria.php'));
     }
 
     public function salvarCategoria() {

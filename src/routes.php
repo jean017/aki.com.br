@@ -59,9 +59,25 @@ $rotas->add('educacao', new Route('/educacao', array('_controller' =>
     'Aki\Controllers\CategoriaEducacao',
     '_method' => 'msgInicial')));
 
+$rotas->add('cadastrousuario', new Route('/cadastrousuario', array('_controller' =>
+    'Aki\Controllers\ControleUsuario',
+    '_method' => 'cadastroUsuario')));
+
+$rotas->add('salvarusuario', new Route('/salvarusuario', array('_controller' =>
+    'Aki\Controllers\ControleUsuario',
+    '_method' => 'salvarUsuario')));
+
 $rotas->add('login', new Route('/login', array('_controller' =>
     'Aki\Controllers\ControleUsuario',
     '_method' => 'telaLogin')));
+
+$rotas->add('validalogin', new Route('/validalogin', array('_controller' =>
+    'Aki\Controllers\ControleUsuario',
+    '_method' => 'validaLogin')));
+
+$rotas->add('paineldecontrole', new Route('/paineldecontrole', array('_controller' =>
+    'Aki\Controllers\ControleUsuario',
+    '_method' => 'paineldeControle')));
 
 $rotas->add('salvarcategoria', new Route('/salvarcategoria', array('_controller' =>
     'Aki\Controllers\Cadastro',
@@ -71,16 +87,5 @@ $rotas->add('cadastrocategoria', new Route('/cadastrocategoria', array('_control
     'Aki\Controllers\Cadastro',
     '_method' => 'cadastroCategoria')));
 
-$rotas->add('cadastrousuario', new Route('/cadastrousuario', array('_controller' =>
-    'Aki\Controllers\ControleUsuario',
-    '_method' => 'cadastroUsuario')));
-
-$rotas->add('salvarusuario', new Route('/salvarusuario', array('_controller' =>
-    'Aki\Controllers\ControleUsuario',
-    '_method' => 'salvarUsuario')));
-
-$rotas->add('paineldecontrole', new Route('/paineldecontrole', array('_controller' =>
-    'Aki\Controllers\ControleUsuario',
-    '_method' => 'paineldeControle')));
 
 return $rotas;

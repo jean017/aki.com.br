@@ -16,7 +16,7 @@ class ModeloUsuario {
              
         try {
             
-            $sql = "INSERT INTO usuario (usuario, senha, nome, email) VALUES (:usuario, md5(:senha), :nome, :email);";
+            $sql = "INSERT INTO usuario (usuario, senha, nome, email) VALUES (:usuario, md5(:senha), :nome, :email)";
             
             $p_sql = Conexao::getInstance()->prepare($sql);
             
@@ -44,7 +44,7 @@ class ModeloUsuario {
             $p_sql = Conexao::getInstance()->prepare($sql);
             
             $p_sql->bindValue(':usuario', $usuario->getUsuario());
-            $p_sql->bindValue(':senha'.'aki', $usuario->getSenha());
+            $p_sql->bindValue(':senha', $usuario->getSenha().'maps');
             $p_sql->bindValue(':nome', $usuario->getNome());
             $p_sql->bindValue(':email', $usuario->getEmail());
             $p_sql->bindValue(':idusuario', $usuario->getIdUsuario());
@@ -92,6 +92,28 @@ class ModeloUsuario {
             
             print_r('Erro na Listagem de Categoria!\n' .$ex);
             
+        }
+    }
+    
+        public function Login(Usuario $usuario) {
+        try {
+            $sql = "SELECT * FROM usuario WHERE usuario = :usuario AND senha = md5(:senha)";
+            $p_sql = Conexao::getInstance()->prepare($sql);
+            $p_sql->bindValue(":usuario", $usuario->getUsuario());
+            $p_sql->bindValue(":senha", $usuario->getSenha().'maps');
+            $p_sql->execute();
+            
+            if ($p_sql->rowCount() == 1) {
+                
+                return $p_sql->fetch(PDO::FETCH_OBJ);
+                
+            } else
+                
+                return false;
+            
+        } catch (Exception $exc) {
+            
+            echo $exc->getTraceAsString();
         }
     }
 

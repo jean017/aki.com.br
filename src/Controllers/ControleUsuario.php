@@ -25,27 +25,37 @@ class ControleUsuario {
     }
 
     public function telaLogin() {
-        return $this->response->setContent($this->twig->render('Login.html'));
+        return $this->response->setContent($this->twig->render('Login.php'));
     }
 
     public function validaLogin() {
         $usuario = new Usuario();
-        $usuario->setNome($this->request->get());
+        $usuario->setUsuario($this->request->get('usuario'));
+        $usuario->setSenha($this->request->get('senha'));
         $modelo = new ModeloUsuario();
-        $modelo->inserirBD($usuario);
+        $usuario = $modelo->Login($usuario);
+
+        if ($usuario) {
+            $usuario->senha = '';
+            $this->sessao->add("usuario", $usuario);
+            $destino = "/paineldecontrole";
+            $this->redireciona($destino);
+        } else {
+            $destino = "/login";
+            $this->redireciona($destino);
+        }
     }
 
     public function paineldeControle() {
-        return $this->response->setContent($this->twig->render('PaineldeControle.html'));
+        return $this->response->setContent($this->twig->render('PaineldeControle.php'));
     }
 
     public function cadastroUsuario() {
-        return $this->response->setContent($this->twig->render('CadastroUsuario.html'));
+        return $this->response->setContent($this->twig->render('CadastroUsuario.php'));
     }
 
     public function salvarUsuario() {
         $usuario = new Usuario();
-        $usuario->setIdUsuario(null);
         $usuario->setUsuario($this->request->get('usuario'));
         $usuario->setSenha($this->request->get('senha'));
         $usuario->setNome($this->request->get('nome'));
@@ -53,7 +63,7 @@ class ControleUsuario {
         $modelo = new ModeloUsuario();
         $modelo->inserirBD($usuario);
 
-        $destino = "/";
+        $destino = "/paineldecontrole";
         $this->redireciona($destino);
     }
 

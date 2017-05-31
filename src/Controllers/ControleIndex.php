@@ -23,7 +23,7 @@ class ControleIndex {
     }
 
     public function telaInicial() {
-        return $this->response->setContent($this->twig->render('index.html'));
+        return $this->response->setContent($this->twig->render('index.php'));
     }
 
 }
