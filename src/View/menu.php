@@ -52,7 +52,7 @@
                         <li class="active"> <a ><i class="fa fa-map-marker"></i></a>
                         </li>
                         <li><a href="#">Categorias</a></li>
-                        <li><a href="#">Novos Lugares</a></li>
+                        <li><a href="/novolugar">Novos Lugares</a></li>
                         <li><a href="#">Quem Sou?</a></li>
                     </ul>
                     <form class="navbar-form navbar-header">
