@@ -27,7 +27,7 @@
                         <p>Aqui você pode gerenciar suas empresas, deixando-a sempre com dados atualizados. </br> Além de seus dados pessoais de conta como email, usuário e senha.</p>                       
                         </br></br>
                         <div class="col-md-4">
-                            <p><a class="btn btn-success btn-lg" href="#" role="button">Adicionar Empresa</a></p>
+                            <p><a class="btn btn-success btn-lg " href="#" role="button">Adicionar Empresa</a></p>
                         </div>
                         <div class="col-md-4">
                             <p><a class="btn btn-success btn-lg" href="#" role="button">Atualizar Dados da Empresa</a></p>

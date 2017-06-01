@@ -8,6 +8,7 @@ class Empresa {
     private $razaoSocial;
     private $fantasia;
     private $telefone;
+    private $telefone2;
     private $infoAdd;
     private $cnpj;
     private $endereco;
@@ -18,6 +19,10 @@ class Empresa {
     private $cep;
     private $uf;
     private $cidade;
+    private $email;
+    private $foto1;
+    private $foto2;
+    private $foto3;
             
     function __construct() {
         
@@ -37,6 +42,10 @@ class Empresa {
 
     function getTelefone() {
         return $this->telefone;
+    }
+
+    function getTelefone2() {
+        return $this->telefone2;
     }
 
     function getInfoAdd() {
@@ -79,6 +88,22 @@ class Empresa {
         return $this->cidade;
     }
 
+    function getEmail() {
+        return $this->email;
+    }
+
+    function getFoto1() {
+        return $this->foto1;
+    }
+
+    function getFoto2() {
+        return $this->foto2;
+    }
+
+    function getFoto3() {
+        return $this->foto3;
+    }
+
     function setIdEmpresa($idEmpresa) {
         $this->idEmpresa = $idEmpresa;
     }
@@ -93,6 +118,10 @@ class Empresa {
 
     function setTelefone($telefone) {
         $this->telefone = $telefone;
+    }
+
+    function setTelefone2($telefone2) {
+        $this->telefone2 = $telefone2;
     }
 
     function setInfoAdd($infoAdd) {
@@ -134,4 +163,22 @@ class Empresa {
     function setCidade($cidade) {
         $this->cidade = $cidade;
     }
+
+    function setEmail($email) {
+        $this->email = $email;
+    }
+
+    function setFoto1($foto1) {
+        $this->foto1 = $foto1;
+    }
+
+    function setFoto2($foto2) {
+        $this->foto2 = $foto2;
+    }
+
+    function setFoto3($foto3) {
+        $this->foto3 = $foto3;
+    }
+
+
   }

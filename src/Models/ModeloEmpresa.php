@@ -18,9 +18,10 @@ class ModeloEmpresa {
         try {
             
             $sql = "INSERT INTO empresa (razao_social, fantasia, telefone, info_add, cnpj, fkcategoria, "
-                    . "lagradouro, numero, bairro, cep, uf, cidade) "
-                    . "VALUES (:razao_social, :fantasia, :telefone, :info_add, :cnpj, :fkcategoria, "
-                    . ":lagradouro, :numero, :bairro, :cep, :uf, :cidade)";
+                    . "lagradouro, numero,bairro, cep, uf, cidade,telefone2, email) "
+                    . "VALUES (:razao_social, :fantasia, :telefone, :info_add, cnpj, fkcategoria, "
+                    . ":lagradouro, :numero, :bairro, :cep, :uf, :cidade, :telefone2, :email)";
+
             
             $p_sql = Conexao::getInstance()->prepare($sql);
             
@@ -46,9 +47,9 @@ class ModeloEmpresa {
             
             print_r('Erro na Inclusão da Empresa!\n Erro: '.$ex);
         }
-    }
-    
-    public function alterarBD(Empresa $empresa){
+    }       
+
+        public function alterarBD(Empresa $empresa){
         
         try {
             $sql = "UPDATE empresa SET razao_social = :razao_social, fantasia = :fantasia, "
@@ -117,5 +118,21 @@ class ModeloEmpresa {
             
         }
     }
+    
+     public function listarCategorias(){
+          try {
+            $sql = "SELECT descricao FROM categoria";
+            
+            $p_sql = Conexao::getInstance()->prepare($sql);
+            $p_sql->execute();
+            
+            return $p_sql->fetchAll(PDO::FETCH_OBJ);
+            
+        } catch (Exception $ex) {
+            
+            print_r('Erro na Listagem de Categorias!\n' .$ex);
+            
+        }
+    }
+     }
 
-}

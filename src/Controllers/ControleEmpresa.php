@@ -29,17 +29,34 @@ class ControleEmpresa {
     }
 
     public function cadastroEmpresa() {
-        return $this->response->setContent($this->twig->render('CadastroEmpresa.php'));
+        
+        $modelo = new ModeloEmpresa();
+        $categoria = $modelo->listarCategorias();
+        
+        return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('categoria' => $categoria)));
     }
 
     public function salvarEmpresa() {
-        $usuario = new Usuario();
-        $usuario->setUsuario($this->request->get('usuario'));
-        $usuario->setSenha($this->request->get('senha'));
-        $usuario->setNome($this->request->get('nome'));
-        $usuario->setEmail($this->request->get('email'));
-        $modelo = new ModeloUsuario();
-        $modelo->inserirBD($usuario);
+        $empresa = new Empresa();
+        $empresa->setRazaoSocial($this->request->get('razao'));
+        $empresa->setFantasia($this->request->get('fantasia'));
+        $empresa->setCnpj($this->request->get('cnpj'));
+        $empresa->setCep($this->request->get('cep'));
+        $empresa->setLagradouro($this->request->get('lagradouro'));
+        $empresa->setNumero($this->request->get('numero'));
+        $empresa->setBairro($this->request->get('bairro'));
+        $empresa->setCidade($this->request->get('cidade'));
+        $empresa->setUf($this->request->get('uf'));
+        $empresa->setTelefone($this->request->get('telefone'));
+        $empresa->setTelefone2($this->request->get('telefone2'));
+        $empresa->setEmail($this->request->get('email'));
+        $empresa->setInfoAdd($this->request->get('add'));
+        $empresa->setFoto1($this->request->get('foto1'));
+        $empresa->setFoto2($this->request->get('foto2'));
+        $empresa->setFoto3($this->request->get('foto3'));
+                
+        $modelo = new ModeloEmpresa();
+        $modelo->inserirBD($empresa);
 
         $destino = "/paineldecontrole";
         $this->redireciona($destino);

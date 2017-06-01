@@ -48,11 +48,23 @@
                         <label for="inputCNPJ" class="sr-only">CNPJ</label>
                         <input type="text" class="form-control" name="cnpj" id="cnpj" placeholder="CNPJ" required>
                         </br>
+                        <select class="form-control" name="categoria">
+                            <option value="">Categoria</option>
+                            <option value="">{% for categorias in categoria %} 
+                                {{categorias.descricao}}
+                                {% endfor %}
+                            </option>
+
+                        </select>
+                        <br />
                         <label for="inputCEP" class="sr-only">CEP</label>
                         <input type="text" class="form-control" name="cep" id="cep" value="" placeholder="CEP" required autofocus>
                         </br>
                         <label for="inputLagradouro" class="sr-only">Lagradouro</label>
                         <input type="text" class="form-control" name="lagradouro" id="rua" placeholder="Lagradouro">
+                        </br>
+                        <label for="inputNumero" class="sr-only">Número</label>
+                        <input type="text" class="form-control" name="numero" id="numero" placeholder="Número">
                         </br>
                         <label for="inputBairro" class="sr-only">Bairro</label>
                         <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro" >
@@ -84,13 +96,13 @@
 
                     </div>
                     <div class="col-md-4">
-                        <h3 class="form-signin-heading text-center">Fotos (até 3 arquivos)</h3>
+                        <h3 class="form-signin-heading text-center">Fotos (até 3 arquivos de 3 MB)</h3>
                         <label for="inputFoto" class="sr-only">Fotos</label>
-                        <input type="file" class="form-control" name="foto1" id="foto1" placeholder="Fotos">
+                        <input type="file" class="form-control" name="foto1" id="foto1" placeholder="Fotos" accept="image/*">
                         </br>
-                        <input type="file" class="form-control" name="foto2" id="foto2" placeholder="Fotos">
+                        <input type="file" class="form-control" name="foto2" id="foto2" placeholder="Fotos" accept="image/*">
                         </br>
-                        <input type="file" class="form-control" name="foto3" id="foto3" placeholder="Fotos">
+                        <input type="file" class="form-control" name="foto3" id="foto3" placeholder="Fotos" accept="image/*">
                         </br>
                         </br>
                         <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>

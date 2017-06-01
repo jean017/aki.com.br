@@ -35,7 +35,7 @@ $rotas->add('cadastroempresa', new Route('/cadastroempresa', array('_controller'
     'Aki\Controllers\ControleEmpresa',
     '_method' => 'cadastroEmpresa')));
 
-$rotas->add('cadastroempresa', new Route('/novolugar', array('_controller' =>
+$rotas->add('novolugar', new Route('/novolugar', array('_controller' =>
     'Aki\Controllers\ControleEmpresa',
     '_method' => 'cadastroEmpresa')));
 
