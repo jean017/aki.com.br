@@ -33,7 +33,16 @@ class ControleEmpresa {
         $modelo = new ModeloEmpresa();
         $categoria = $modelo->listarCategorias();
         
-        return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('categoria' => $categoria[])));
+      // foreach ($categoria as $dados ){
+            
+           //  echo"</br>".$dados->descricao;
+             
+            // return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('categoria' => $dados->descricao)));
+             
+        //}
+       
+        
+        return $this->response->setContent($this->twig->render('CadastroEmpresa.php'));
     }
 
     public function salvarEmpresa() {
@@ -42,6 +51,7 @@ class ControleEmpresa {
         $empresa->setFantasia($this->request->get('fantasia'));
         $empresa->setCnpj($this->request->get('cnpj'));
         $empresa->setCep($this->request->get('cep'));
+        $empresa->setCategoria($this->request->get('categoria'));
         $empresa->setLagradouro($this->request->get('lagradouro'));
         $empresa->setNumero($this->request->get('numero'));
         $empresa->setBairro($this->request->get('bairro'));

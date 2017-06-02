@@ -87,5 +87,21 @@ class ModeloCategoria {
             
         }
     }
+    
+       public function retornaIdBD ($categoria){
+        try {
+            $sql = "SELECT idcategoria FROM categoria WHERE descricao = :categoria";
+            
+            $p_sql = Conexao::getInstance()->prepare($sql);
+            $p_sql->execute();
+            
+            return $p_sql->fetchAll(PDO::FETCH_OBJ);
+            
+        } catch (Exception $ex) {
+            
+            print_r('Erro na Retorna ID de Categoria!\n' .$ex);
+            
+        }
+    }
 
 }

@@ -49,12 +49,15 @@
                         <input type="text" class="form-control" name="cnpj" id="cnpj" placeholder="CNPJ" required>
                         </br>
                         <select class="form-control" name="categoria">
-                            <option value="">Categoria</option>
-                            <option value="">{% for categorias in categoria %} 
-                                {{categorias.descricao}}
-                                {% endfor %}
-                            </option>
-
+                            <option value="">Selecione uma Categoria</option>
+                            <option value="Bares">Bares</option>
+                            <option value="Contruções">Contruções</option>
+                            <option value="Educação">Educação</option>
+                            <option value="Hotéis">Hotéis</option>
+                            <option value="Igrejas">Igrejas</option>
+                            <option value="Informática">Informática</option>
+                            <option value="Restaurantes">Restaurantes</option>
+                            <option value="Saúde">Saúde</option>
                         </select>
                         <br />
                         <label for="inputCEP" class="sr-only">CEP</label>
@@ -103,7 +106,6 @@
                         <input type="file" class="form-control" name="foto2" id="foto2" placeholder="Fotos" accept="image/*">
                         </br>
                         <input type="file" class="form-control" name="foto3" id="foto3" placeholder="Fotos" accept="image/*">
-                        </br>
                         </br>
                         <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
                     </div>
