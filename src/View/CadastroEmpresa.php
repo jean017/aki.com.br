@@ -86,9 +86,6 @@
                         <label for="inputTelefone" class="sr-only">Telefone</label>
                         <input type="text" class="form-control" name="telefone" id="telefone" placeholder="Telefone">
                         </br>
-                        <label for="inputTelefone2" class="sr-only">Telefone2</label>
-                        <input type="text" class="form-control" name="telefone2" id="telefone2" placeholder="Telefone 2">
-                        </br>
                         <label for="inputEmail" class="sr-only">Email</label>
                         <input type="email" class="form-control" name="email" id="email" placeholder="Email: @">
                         </br>

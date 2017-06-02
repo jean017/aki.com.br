@@ -3,12 +3,11 @@
 namespace Aki\Entity;
 
 class Empresa {
-        
+
     private $idEmpresa;
     private $razaoSocial;
     private $fantasia;
     private $telefone;
-    private $telefone2;
     private $infoAdd;
     private $cnpj;
     private $endereco;
@@ -23,11 +22,11 @@ class Empresa {
     private $foto1;
     private $foto2;
     private $foto3;
-            
+
     function __construct() {
         
     }
-    
+
     function getIdEmpresa() {
         return $this->idEmpresa;
     }
@@ -42,10 +41,6 @@ class Empresa {
 
     function getTelefone() {
         return $this->telefone;
-    }
-
-    function getTelefone2() {
-        return $this->telefone2;
     }
 
     function getInfoAdd() {
@@ -120,10 +115,6 @@ class Empresa {
         $this->telefone = $telefone;
     }
 
-    function setTelefone2($telefone2) {
-        $this->telefone2 = $telefone2;
-    }
-
     function setInfoAdd($infoAdd) {
         $this->infoAdd = $infoAdd;
     }
@@ -180,5 +171,4 @@ class Empresa {
         $this->foto3 = $foto3;
     }
 
-
-  }
+}

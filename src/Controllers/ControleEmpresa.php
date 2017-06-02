@@ -58,7 +58,6 @@ class ControleEmpresa {
         $empresa->setCidade($this->request->get('cidade'));
         $empresa->setUf($this->request->get('uf'));
         $empresa->setTelefone($this->request->get('telefone'));
-        $empresa->setTelefone2($this->request->get('telefone2'));
         $empresa->setEmail($this->request->get('email'));
         $empresa->setInfoAdd($this->request->get('add'));
         $empresa->setFoto1($this->request->get('foto1'));

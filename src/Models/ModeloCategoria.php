@@ -93,9 +93,12 @@ class ModeloCategoria {
             $sql = "SELECT idcategoria FROM categoria WHERE descricao = :categoria";
             
             $p_sql = Conexao::getInstance()->prepare($sql);
+            
+            $p_sql->bindValue(':categoria', $categoria);
+            
             $p_sql->execute();
             
-            return $p_sql->fetchAll(PDO::FETCH_OBJ);
+            return $p_sql->fetchAll(PDO::FETCH_ASSOC);
             
         } catch (Exception $ex) {
             
