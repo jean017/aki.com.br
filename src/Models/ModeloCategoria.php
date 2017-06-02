@@ -89,6 +89,7 @@ class ModeloCategoria {
     }
     
        public function retornaIdBD ($categoria){
+
         try {
             $sql = "SELECT idcategoria FROM categoria WHERE descricao = :categoria";
             
@@ -98,7 +99,7 @@ class ModeloCategoria {
             
             $p_sql->execute();
             
-            return $p_sql->fetchAll(PDO::FETCH_ASSOC);
+            return $p_sql->fetchAll(PDO::FETCH_OBJ);
             
         } catch (Exception $ex) {
             

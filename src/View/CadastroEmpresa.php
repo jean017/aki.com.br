@@ -22,6 +22,13 @@
 
         {{include ('menu.php') }}
 
+
+<!--        {{ opcoes[1].descricao }}
+
+        {% for user in opcoes %}
+        {{ user.descricao }}</br>
+        {% endfor %}-->
+
         <div class="container">
             <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
         </div>
@@ -49,14 +56,10 @@
                         </br>
                         <select class="form-control" name="categoria">
                             <option value="">Selecione uma Categoria</option>
-                            <option value="Bares">Bares</option>
-                            <option value="Contruções">Contruções</option>
-                            <option value="Educação">Educação</option>
-                            <option value="Hotéis">Hotéis</option>
-                            <option value="Igrejas">Igrejas</option>
-                            <option value="Informática">Informática</option>
-                            <option value="Restaurantes">Restaurantes</option>
-                            <option value="Saúde">Saúde</option>
+                            {% for user in opcoes %}
+                            <option value={{ user.idcategoria }} >
+                             {{ user.descricao }}</br></option>
+                            {% endfor %}
                         </select>
                         <br />
                         <label for="inputCEP" class="sr-only">CEP</label>

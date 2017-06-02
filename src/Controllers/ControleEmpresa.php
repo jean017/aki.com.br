@@ -30,22 +30,25 @@ class ControleEmpresa {
 
     public function cadastroEmpresa() {
         
-//        $modelo = new ModeloEmpresa();
-//        $categoria = $modelo->listarCategorias();
-//        
+        $modelo = new ModeloEmpresa();
+        $categoria = $modelo->listarCategorias();
+        
 //       foreach ($categoria as $dados ){
 //            
 //            echo"</br>".$dados->descricao;
 //             
-//            return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('categoria' => $dados->descricao)));
-//             
-//        }
+            return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('opcoes' => $categoria)));
+             
+       // }
        
         
-        return $this->response->setContent($this->twig->render('CadastroEmpresa.php'));
+      //  return $this->response->setContent($this->twig->render('CadastroEmpresa.php'));
     }
 
     public function salvarEmpresa() {
+        
+        echo $_POST['categoria'];
+        
         $empresa = new Empresa();
         $empresa->setRazaoSocial($this->request->get('razao'));
         $empresa->setFantasia($this->request->get('fantasia'));
@@ -64,11 +67,11 @@ class ControleEmpresa {
         $empresa->setFoto2($this->request->get('foto2'));
         $empresa->setFoto3($this->request->get('foto3'));
                 
-        $modelo = new ModeloEmpresa();
-        $modelo->inserirBD($empresa);
+       // $modelo = new ModeloEmpresa();
+        //$modelo->inserirBD($empresa);
 
-        $destino = "/paineldecontrole";
-        $this->redireciona($destino);
+        //$destino = "/paineldecontrole";
+       // $this->redireciona($destino);
     }
 
     /*
