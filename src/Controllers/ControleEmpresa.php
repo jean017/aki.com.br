@@ -30,16 +30,16 @@ class ControleEmpresa {
 
     public function cadastroEmpresa() {
         
-        $modelo = new ModeloEmpresa();
-        $categoria = $modelo->listarCategorias();
-        
-      // foreach ($categoria as $dados ){
-            
-           //  echo"</br>".$dados->descricao;
-             
-            // return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('categoria' => $dados->descricao)));
-             
-        //}
+//        $modelo = new ModeloEmpresa();
+//        $categoria = $modelo->listarCategorias();
+//        
+//       foreach ($categoria as $dados ){
+//            
+//            echo"</br>".$dados->descricao;
+//             
+//            return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('categoria' => $dados->descricao)));
+//             
+//        }
        
         
         return $this->response->setContent($this->twig->render('CadastroEmpresa.php'));

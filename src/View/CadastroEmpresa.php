@@ -15,7 +15,6 @@
         <link href="../../css/estilo.css" rel="stylesheet" type="text/css"/>
         <link href="../../css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-        <link href="../../css/locastyle.css" rel="stylesheet" type="text/css"/>
 
     </head>
 
@@ -88,7 +87,7 @@
                         <input type="text" class="form-control" name="telefone" id="telefone" placeholder="Telefone">
                         </br>
                         <label for="inputTelefone2" class="sr-only">Telefone2</label>
-                        <input type="text" class="form-control" name="telefone2" id="telefone" placeholder="Telefone 2">
+                        <input type="text" class="form-control" name="telefone2" id="telefone2" placeholder="Telefone 2">
                         </br>
                         <label for="inputEmail" class="sr-only">Email</label>
                         <input type="email" class="form-control" name="email" id="email" placeholder="Email: @">
@@ -120,11 +119,12 @@
         {{include ('footer.php') }}
 
         <script src="../../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="../../js/jquery.maskedinput.js" type="text/javascript"></script>
+        <script src="../../js/jquery.maskedinput.min.js" type="text/javascript"></script>
         <script src="../../js/bootstrap.js" type="text/javascript"></script>
         <script src="../../js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../../js/npm.js" type="text/javascript"></script>
         <script src="../../js/script.js" type="text/javascript"></script>
-        <script src="../../js/locastyle.js" type="text/javascript"></script>
 
     </body>
 </html>
