@@ -33,7 +33,7 @@ class ControleEmpresa {
         $modelo = new ModeloEmpresa();
         $categoria = $modelo->listarCategorias();
         
-        return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('categoria' => $categoria)));
+        return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('categoria' => $categoria[])));
     }
 
     public function salvarEmpresa() {
