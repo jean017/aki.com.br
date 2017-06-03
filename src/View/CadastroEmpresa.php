@@ -23,11 +23,11 @@
         {{include ('menu.php') }}
 
 
-<!--        {{ opcoes[1].descricao }}
-
-        {% for user in opcoes %}
-        {{ user.descricao }}</br>
-        {% endfor %}-->
+        <!--        {{ opcoes[1].descricao }}
+        
+                {% for user in opcoes %}
+                {{ user.descricao }}</br>
+                {% endfor %}-->
 
         <div class="container">
             <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
@@ -43,7 +43,7 @@
 
                 <form class="form-signin" action="/salvarempresa" method="post">
 
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <h3 class="form-signin-heading text-center">Dados</h3>
                         <label for="inputRazaoSocial" class="sr-only">Razão Social</label>
                         <input type="text" class="form-control" placeholder="Razão Social" name="razao" required autofocus>
@@ -58,7 +58,7 @@
                             <option value="">Selecione uma Categoria</option>
                             {% for user in opcoes %}
                             <option value={{ user.idcategoria }} >
-                             {{ user.descricao }}</br></option>
+                                    {{ user.descricao }}</br></option>
                             {% endfor %}
                         </select>
                         <br />
@@ -82,7 +82,7 @@
                         </br>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-6">
 
                         <h3 class="form-signin-heading text-center">Contato</h3>
 
@@ -95,16 +95,9 @@
                         <label for="inputAdd" class="sr-only">Informações Adicionais</label>
                         <input type="text" class="form-control" name="add" id="add" placeholder="Informações Adicionais">
                         </br>
-
-                    </div>
-                    <div class="col-md-4">
-                        <h3 class="form-signin-heading text-center">Fotos (até 3 arquivos de 3 MB)</h3>
+                        <h3 class="form-signin-heading text-center">Imagem (arquivos de até 3 MB)</h3>
                         <label for="inputFoto" class="sr-only">Fotos</label>
                         <input type="file" class="form-control" name="foto1" id="foto1" placeholder="Fotos" accept="image/*">
-                        </br>
-                        <input type="file" class="form-control" name="foto2" id="foto2" placeholder="Fotos" accept="image/*">
-                        </br>
-                        <input type="file" class="form-control" name="foto3" id="foto3" placeholder="Fotos" accept="image/*">
                         </br>
                         <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
                     </div>

@@ -16,38 +16,39 @@ class ModeloEmpresa {
     public function inserirBD(Empresa $empresa) {
         
        // echo $empresa->getCategoria();
+        
+        try {
 
-//        try {
-//
-//            $sql = "INSERT INTO empresa (razao_social, fantasia, telefone, info_add, cnpj, fkcategoria, "
-//                    . "lagradouro, numero,bairro, cep, uf, cidade, email) "
-//                    . "VALUES (:razao_social, :fantasia, :telefone, :info_add, :cnpj, :fkcategoria, "
-//                    . ":lagradouro, :numero, :bairro, :cep, :uf, :cidade, :email)";
-//
-//
-//            $p_sql = Conexao::getInstance()->prepare($sql);
-//
-//            $p_sql->bindValue(':razao_social', $empresa->getRazaoSocial());
-//            $p_sql->bindValue(':fantasia', $empresa->getFantasia());
-//            $p_sql->bindValue(':telefone', $empresa->getTelefone());
-//            $p_sql->bindValue(':info_add', $empresa->getInfoAdd());
-//            $p_sql->bindValue(':cnpj', $empresa->getCnpj());
-//            $p_sql->bindValue(':fkcategoria', $empresa->getCategoria());
-//            $p_sql->bindValue(':lagradouro', $empresa->getLagradouro());
-//            $p_sql->bindValue(':numero', $empresa->getNumero());
-//            $p_sql->bindValue(':bairro', $empresa->getBairro());
-//            $p_sql->bindValue(':cep', $empresa->getCep());
-//            $p_sql->bindValue(':uf', $empresa->getUf());
-//            $p_sql->bindValue(':cidade', $empresa->getCidade());
-//            $p_sql->bindValue(':email', $empresa->getEmail());
-//
-//            $p_sql->execute();
-//
-//            return Conexao::getInstance()->lastInsertId();
-//        } catch (Exception $ex) {
-//
-//            print_r('Erro na Inclusão da Empresa!\n Erro: ' . $ex);
-//        }
+            $sql = "INSERT INTO empresa (razao_social, fantasia, telefone, info_add, cnpj, fkcategoria, "
+                    . "lagradouro, numero,bairro, cep, uf, cidade, email, imagem) "
+                    . "VALUES (:razao_social, :fantasia, :telefone, :info_add, :cnpj, :fkcategoria, "
+                    . ":lagradouro, :numero, :bairro, :cep, :uf, :cidade, :email, :imagem)";
+
+
+            $p_sql = Conexao::getInstance()->prepare($sql);
+
+            $p_sql->bindValue(':razao_social', $empresa->getRazaoSocial());
+            $p_sql->bindValue(':fantasia', $empresa->getFantasia());
+            $p_sql->bindValue(':telefone', $empresa->getTelefone());
+            $p_sql->bindValue(':info_add', $empresa->getInfoAdd());
+            $p_sql->bindValue(':cnpj', $empresa->getCnpj());
+            $p_sql->bindValue(':fkcategoria', $empresa->getCategoria());
+            $p_sql->bindValue(':lagradouro', $empresa->getLagradouro());
+            $p_sql->bindValue(':numero', $empresa->getNumero());
+            $p_sql->bindValue(':bairro', $empresa->getBairro());
+            $p_sql->bindValue(':cep', $empresa->getCep());
+            $p_sql->bindValue(':uf', $empresa->getUf());
+            $p_sql->bindValue(':cidade', $empresa->getCidade());
+            $p_sql->bindValue(':email', $empresa->getEmail());
+            $p_sql->bindValue('imagem', $empresa->getFoto());
+
+            $p_sql->execute();
+
+            return Conexao::getInstance()->lastInsertId();
+        } catch (Exception $ex) {
+
+            print_r('Erro na Inclusão da Empresa!\n Erro: ' . $ex);
+        }
     }
 
     public function alterarBD(Empresa $empresa) {

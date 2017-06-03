@@ -19,9 +19,7 @@ class Empresa {
     private $uf;
     private $cidade;
     private $email;
-    private $foto1;
-    private $foto2;
-    private $foto3;
+    private $foto;
 
     function __construct() {
         
@@ -87,16 +85,8 @@ class Empresa {
         return $this->email;
     }
 
-    function getFoto1() {
-        return $this->foto1;
-    }
-
-    function getFoto2() {
-        return $this->foto2;
-    }
-
-    function getFoto3() {
-        return $this->foto3;
+    function getFoto() {
+        return $this->foto;
     }
 
     function setIdEmpresa($idEmpresa) {
@@ -159,16 +149,8 @@ class Empresa {
         $this->email = $email;
     }
 
-    function setFoto1($foto1) {
-        $this->foto1 = $foto1;
-    }
-
-    function setFoto2($foto2) {
-        $this->foto2 = $foto2;
-    }
-
-    function setFoto3($foto3) {
-        $this->foto3 = $foto3;
+    function setFoto($foto) {
+        $this->foto = $foto;
     }
 
 }

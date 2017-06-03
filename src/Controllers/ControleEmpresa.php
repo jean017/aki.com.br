@@ -46,9 +46,7 @@ class ControleEmpresa {
     }
 
     public function salvarEmpresa() {
-        
-        echo $_POST['categoria'];
-        
+
         $empresa = new Empresa();
         $empresa->setRazaoSocial($this->request->get('razao'));
         $empresa->setFantasia($this->request->get('fantasia'));
@@ -63,15 +61,16 @@ class ControleEmpresa {
         $empresa->setTelefone($this->request->get('telefone'));
         $empresa->setEmail($this->request->get('email'));
         $empresa->setInfoAdd($this->request->get('add'));
-        $empresa->setFoto1($this->request->get('foto1'));
-        $empresa->setFoto2($this->request->get('foto2'));
-        $empresa->setFoto3($this->request->get('foto3'));
+        
+        //arrumar o salvar imagem!!!
+        
+        $empresa->setFoto($this->request->files->get('foto'));
                 
-       // $modelo = new ModeloEmpresa();
-        //$modelo->inserirBD($empresa);
+        $modelo = new ModeloEmpresa();
+        $modelo->inserirBD($empresa);
 
-        //$destino = "/paineldecontrole";
-       // $this->redireciona($destino);
+        $destino = "/paineldecontrole";
+        $this->redireciona($destino);
     }
 
     /*

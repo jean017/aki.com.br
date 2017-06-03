@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     jQuery("#data").mask("99/99/9999");
     jQuery("#cep").mask("99999-999");
-    jQuery("cnpj").mask("99.999.999/9999-99");
+    jQuery("#cnpj").mask("99.999.999/9999-99");
     jQuery("#telefone").mask("(99) 9999-99999");
 
     //Quando o campo cep perde o foco.
