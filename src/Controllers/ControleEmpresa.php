@@ -39,15 +39,13 @@ class ControleEmpresa {
 //             
             return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('opcoes' => $categoria)));
              
-       // }
-       
-        
-      //  return $this->response->setContent($this->twig->render('CadastroEmpresa.php'));
     }
 
     public function salvarEmpresa() {
 
         $empresa = new Empresa();
+        $file = null;
+              
         $empresa->setRazaoSocial($this->request->get('razao'));
         $empresa->setFantasia($this->request->get('fantasia'));
         $empresa->setCnpj($this->request->get('cnpj'));
@@ -60,17 +58,19 @@ class ControleEmpresa {
         $empresa->setUf($this->request->get('uf'));
         $empresa->setTelefone($this->request->get('telefone'));
         $empresa->setEmail($this->request->get('email'));
-        $empresa->setInfoAdd($this->request->get('add'));
+        $teste = $empresa->setInfoAdd($this->request->get('add'));
         
-        //arrumar o salvar imagem!!!
+        print_r($teste);
         
-        $empresa->setFoto($this->request->files->get('foto'));
+        $this->$file = $this->request->files->get('imagem');
+        
+        var_dump($file);
                 
-        $modelo = new ModeloEmpresa();
-        $modelo->inserirBD($empresa);
+      //  $modelo = new ModeloEmpresa();
+       // $modelo->inserirBD($empresa, $imagem);
 
-        $destino = "/paineldecontrole";
-        $this->redireciona($destino);
+       // $destino = "/paineldecontrole";
+       // $this->redireciona($destino);
     }
 
     /*

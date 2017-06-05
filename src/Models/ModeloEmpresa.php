@@ -13,16 +13,16 @@ class ModeloEmpresa {
         
     }
 
-    public function inserirBD(Empresa $empresa) {
-        
-       // echo $empresa->getCategoria();
-        
+    public function inserirBD(Empresa $empresa, \Symfony\Component\HttpFoundation\File\UploadedFile $imagem) {
+
+// echo $empresa->getCategoria();
+
         try {
 
             $sql = "INSERT INTO empresa (razao_social, fantasia, telefone, info_add, cnpj, fkcategoria, "
-                    . "lagradouro, numero,bairro, cep, uf, cidade, email, imagem) "
+                    . "lagradouro, numero,bairro, cep, uf, cidade, email) "
                     . "VALUES (:razao_social, :fantasia, :telefone, :info_add, :cnpj, :fkcategoria, "
-                    . ":lagradouro, :numero, :bairro, :cep, :uf, :cidade, :email, :imagem)";
+                    . ":lagradouro, :numero, :bairro, :cep, :uf, :cidade, :email)";
 
 
             $p_sql = Conexao::getInstance()->prepare($sql);
@@ -40,16 +40,60 @@ class ModeloEmpresa {
             $p_sql->bindValue(':uf', $empresa->getUf());
             $p_sql->bindValue(':cidade', $empresa->getCidade());
             $p_sql->bindValue(':email', $empresa->getEmail());
-            $p_sql->bindValue('imagem', $empresa->getFoto());
 
             $p_sql->execute();
 
-            return Conexao::getInstance()->lastInsertId();
+            $idEmpresa = Conexao::getInstance()->lastInsertId();
+
+            // $this->inserirBDImagem($idEmpresa, $imagem);
+            
+            print_r($idEmpresa, $imagem);
+
+//            try {
+//
+//                $sql = "INSERT INTO imagem (imagem, fkempresa, nome, tipo) VALUES (:imagem, :fkempresa, :nome, :tipo)";
+//
+//
+//                $p_sql = Conexao::getInstance()->prepare($sql);
+//
+//                $p_sql->bindValue(':imagem', file_get_contents($imagem->getPathname()));
+//                $p_sql->bindValue(':fkempresa', $idEmpresa);
+//                $p_sql->bindValue(':nome', $imagem->getClientOriginalName());
+//                $p_sql->bindValue(':tipo', $imagem->getMimeType());
+//
+//                $p_sql->execute();
+//
+//                return(Conexao::getInstance()->lastInsertId());
+//            } catch (Exception $ex) {
+//
+//                print_r('Erro na Inclusão da Imagem da Empresa\n Erro: ' . $ex);
+//            }
         } catch (Exception $ex) {
 
             print_r('Erro na Inclusão da Empresa!\n Erro: ' . $ex);
         }
     }
+
+//    public function inserirBDImagem($idEmpresa, \Symfony\Component\HttpFoundation\File\UploadedFile $imagem) {
+//
+//        try {
+//
+//            $sql = "INSERT INTO imagem (imagem, fkempresa) VALUES (:imagem, :fkempresa)";
+//
+//
+//            $p_sql = Conexao::getInstance()->prepare($sql);
+//
+//            $p_sql->bindValue(':imagem', file_get_contents($imagem->getPathname()));
+//            $p_sql->bindValue(':fkempresa', $idEmpresa);
+//
+//            $p_sql->execute();
+//
+//            return(Conexao::getInstance()->lastInsertId());
+//        } catch (Exception $ex) {
+//
+//            print_r('Erro na Inclusão da Imagem da Empresa\n Erro: ' . $ex);
+//        }
+   // }
 
     public function alterarBD(Empresa $empresa) {
 

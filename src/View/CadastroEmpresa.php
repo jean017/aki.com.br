@@ -97,7 +97,7 @@
                         </br>
                         <h3 class="form-signin-heading text-center">Imagem (arquivos de até 3 MB)</h3>
                         <label for="inputFoto" class="sr-only">Fotos</label>
-                        <input type="file" class="form-control" name="foto1" id="foto1" placeholder="Fotos" accept="image/*">
+                        <input type="file" class="form-control" name="imagem" id="imagem" placeholder="Fotos" accept="image/*">
                         </br>
                         <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
                     </div>
