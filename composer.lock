@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "c871522057a16d2040bf97ba7be77a15ffa2e5e1"
+                "reference": "b238974e1c7cc1859b0c16ddc1c02ecb70ecc07f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/c871522057a16d2040bf97ba7be77a15ffa2e5e1",
-                "reference": "c871522057a16d2040bf97ba7be77a15ffa2e5e1",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/b238974e1c7cc1859b0c16ddc1c02ecb70ecc07f",
+                "reference": "b238974e1c7cc1859b0c16ddc1c02ecb70ecc07f",
                 "shasum": ""
             },
             "require": {
@@ -65,7 +65,7 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2017-04-21T06:10:59+00:00"
+            "time": "2017-06-03T18:33:07+00:00"
         },
         {
             "name": "psr/log",
