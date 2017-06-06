@@ -25,27 +25,25 @@ class ControleEmpresa {
     }
 
     public function paineldeControle() {
-        return $this->response->setContent($this->twig->render('PaineldeControle.php',  array ('fulano'=> $this->sessao->get("nome"))));
+        return $this->response->setContent($this->twig->render('PaineldeControle.php', array('fulano' => $this->sessao->get("nome"))));
     }
 
     public function cadastroEmpresa() {
-        
+
         $modelo = new ModeloEmpresa();
         $categoria = $modelo->listarCategorias();
-        
+
 //       foreach ($categoria as $dados ){
 //            
 //            echo"</br>".$dados->descricao;
 //             
-            return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('opcoes' => $categoria)));
-             
+        return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('opcoes' => $categoria)));
     }
 
     public function salvarEmpresa() {
 
         $empresa = new Empresa();
-        $file = null;
-              
+
         $empresa->setRazaoSocial($this->request->get('razao'));
         $empresa->setFantasia($this->request->get('fantasia'));
         $empresa->setCnpj($this->request->get('cnpj'));
@@ -58,19 +56,31 @@ class ControleEmpresa {
         $empresa->setUf($this->request->get('uf'));
         $empresa->setTelefone($this->request->get('telefone'));
         $empresa->setEmail($this->request->get('email'));
-        $teste = $empresa->setInfoAdd($this->request->get('add'));
-        
-        print_r($teste);
-        
-        $this->$file = $this->request->files->get('imagem');
-        
-        var_dump($file);
-                
-      //  $modelo = new ModeloEmpresa();
-       // $modelo->inserirBD($empresa, $imagem);
+        $empresa->setInfoAdd($this->request->get('add'));
 
-       // $destino = "/paineldecontrole";
-       // $this->redireciona($destino);
+        $imagens = array();
+
+        $imagens[0] = $this->request->files->get('imagem');
+        $imagens[1] = $this->request->files->get('imagem2');
+        $imagens[2] = $this->request->files->get('imagem3');
+
+        $modelo = new ModeloEmpresa();
+        $idEmpresa = $modelo->inserirBD($empresa);
+
+        if ($imagens[0] != NULL) {
+            $modelo->inserirBDImagem($idEmpresa, $imagens[0]);
+        }
+
+        if ($imagens[1] != NULL) {
+            $modelo->inserirBDImagem($idEmpresa, $imagens[1]);
+        }
+
+        if ($imagens[2] != NULL) {
+            $modelo->inserirBDImagem($idEmpresa, $imagens[2]);
+        }
+
+        $destino = "/paineldecontrole";
+        $this->redireciona($destino);
     }
 
     /*
