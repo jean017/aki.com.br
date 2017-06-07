@@ -26,4 +26,8 @@ class ControleIndex {
         return $this->response->setContent($this->twig->render('index.html'));
     }
 
+    public function telaQuemSou() {
+        return $this->response->setContent($this->twig->render('QuemSou.html'));
+    }
+
 }

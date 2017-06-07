@@ -11,6 +11,10 @@ $rotas->add('raiz', new Route('/', array(
     '_controller' => 'Aki\Controllers\ControleIndex', 
     '_method' => 'telaInicial')));
 
+$rotas->add('quemsou', new Route('/quemsou', array(
+    '_controller' => 'Aki\Controllers\ControleIndex', 
+    '_method' => 'telaQuemSou')));
+
 $rotas->add('cadastrousuario', new Route('/cadastrousuario', array('_controller' =>
     'Aki\Controllers\ControleUsuario',
     '_method' => 'cadastroUsuario')));

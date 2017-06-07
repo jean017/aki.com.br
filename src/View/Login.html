@@ -1,23 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="../../img/aki_logo.png">
+{% extends "base.html" %}
 
-        <title>Login</title>
+{% block title %}Nova Empresa{% endblock %}
 
-        <link href="../../css/bootstrap.css" rel="stylesheet">
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/bootstrap-theme.css" rel="stylesheet">
-        <link href="../../css/bootstrap-theme.min.css" rel="stylesheet">
-        <link href="../../css/estilo.css" rel="stylesheet">
-
-    </head>
-    <body>
-
-        {{include ('menu.php') }}
+{% block body %}
 
         <div class="container">
             <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
@@ -49,12 +34,4 @@
             <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
         </div>
 
-        {{include ('footer.php') }}
-
-        <script src="../../js/jquery-3.2.1.min.js"></script>
-        <script src="../../js/bootstrap.min.js"></script>
-        <script src="../../js/bootstrap.js"></script>
-        <script src="../../js/npm.js"></script>
-        <script src="../../js/scripts.js"></script>
-    </body>
-</html>
+{% endblock %}
