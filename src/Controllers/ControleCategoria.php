@@ -7,11 +7,10 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Aki\Util\Sessao;
 use PDO;
-use Aki\Models\ModeloEmpresa;
 use Aki\Models\ModeloCategoria;
-use Aki\Entity\Empresa;
+use Aki\Entity\Categoria;
 
-class ControleEmpresa {
+class ControleCategoria {
 
     private $response;
     private $request;
@@ -25,19 +24,15 @@ class ControleEmpresa {
         $this->sessao = $sessao;
     }
 
-    public function paineldeControle() {
-        return $this->response->setContent($this->twig->render('PaineldeControle.html', array('fulano' => $this->sessao->get("nome"))));
-    }
-
-    public function cadastroEmpresa() {
+    public function listarCategorias() {
 
         $modelo = new ModeloCategoria();
         $categorias = $modelo->listarCategoriasBD();
-           
-        return $this->response->setContent($this->twig->render('CadastroEmpresa.html', array('opcoesCategorias' => $categorias)));
+
+        return $this->response->setContent($this->twig->render('Categorias.html', array('opcoesCategorias' => $categorias)));
     }
 
-    public function salvarEmpresa() {
+    public function salvarCategoria() {
 
         $empresa = new Empresa();
 

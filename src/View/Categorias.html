@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Categorias{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
+</div>
+
+<div class="container">
+    <div class="row">
+        <h2>Selecione uma das categorias para listar todas as empresas relacionadas.</h2>                       
+        </br></br>
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+                {% for categoria in opcoesCategorias %}
+                <div class="col-md-4">
+
+                    <p><a class="btn btn-primary btn-lg " href="/{{ categoria.descricao }}" role="button">{{ categoria.descricao }}</a></p>
+
+                </div>
+                {% endfor %}
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+<div class="container">
+    <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
+</div>
+
+<!--<font FACE="Comic Sans" SIZE="100" COLOR="red"></font>-->
+
+{% endblock %}
+

@@ -31,9 +31,9 @@
                 </br>
                 <select class="form-control" name="categoria">
                     <option value="">Selecione uma Categoria</option>
-                    {% for user in opcoes %}
-                    <option value={{ user.idcategoria }} >
-                            {{ user.descricao }}</br></option>
+                    {% for categoria in opcoesCategorias %}
+                    <option value={{ categoria.idcategoria }} >
+                            {{ categoria.descricao }}</br></option>
                     {% endfor %}
                 </select>
                 <br />

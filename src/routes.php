@@ -47,6 +47,10 @@ $rotas->add('salvarempresa', new Route('/salvarempresa', array('_controller' =>
     'Aki\Controllers\ControleEmpresa',
     '_method' => 'salvarEmpresa')));
 
+$rotas->add('categorias', new Route('/categorias', array('_controller' =>
+    'Aki\Controllers\ControleCategoria',
+    '_method' => 'listarCategorias')));
+
 $rotas->add('salvarcategoria', new Route('/salvarcategoria', array('_controller' =>
     'Aki\Controllers\Cadastro',
     '_method' => 'salvarCategoria')));

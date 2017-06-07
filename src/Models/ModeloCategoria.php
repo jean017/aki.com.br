@@ -72,19 +72,17 @@ class ModeloCategoria {
         }
     }
     
-    public function listarBD (){
+      public function listarCategoriasBD() {
         try {
             $sql = "SELECT * FROM categoria";
-            
+
             $p_sql = Conexao::getInstance()->prepare($sql);
             $p_sql->execute();
-            
-            return $p_sql->fetchAll(PDO::FETCH_CLASS, "Aki\Entity\Categoria");
-            
+
+            return $p_sql->fetchAll(PDO::FETCH_OBJ);
         } catch (Exception $ex) {
-            
-            print_r('Erro na Listagem de Categoria!\n' .$ex);
-            
+
+            print_r('Erro na Listagem de Categorias!\n' . $ex);
         }
     }
     
