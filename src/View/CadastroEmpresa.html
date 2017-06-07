@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Nova Empresa{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        <h1 class="form-signin text-center">Cadastro de Empresas</h1>
+        </br>
+        </br>
+
+        <form class="form-signin" action="/salvarempresa" method="post" enctype="multipart/form-data">
+
+            <div class="col-md-6">
+                <h3 class="form-signin-heading text-center">Dados</h3>
+                <label for="inputRazaoSocial" class="sr-only">Razão Social</label>
+                <input type="text" class="form-control" placeholder="Razão Social" name="razao" required autofocus>
+                </br>
+                <label for="inputFantasia" class="sr-only">Nome Fantasia</label>
+                <input type="text" class="form-control" name="fantasia" placeholder="Nome Fantasia" required>
+                </br>
+                <label for="inputCNPJ" class="sr-only">CNPJ</label>
+                <input type="text" class="form-control" name="cnpj" id="cnpj" placeholder="CNPJ" required>
+                </br>
+                <select class="form-control" name="categoria">
+                    <option value="">Selecione uma Categoria</option>
+                    {% for user in opcoes %}
+                    <option value={{ user.idcategoria }} >
+                            {{ user.descricao }}</br></option>
+                    {% endfor %}
+                </select>
+                <br />
+                <label for="inputCEP" class="sr-only">CEP</label>
+                <input type="text" class="form-control" name="cep" id="cep" value="" placeholder="CEP" required autofocus>
+                </br>
+                <label for="inputLagradouro" class="sr-only">Lagradouro</label>
+                <input type="text" class="form-control" name="lagradouro" id="rua" placeholder="Lagradouro">
+                </br>
+                <label for="inputNumero" class="sr-only">Número</label>
+                <input type="text" class="form-control" name="numero" id="numero" placeholder="Número">
+                </br>
+                <label for="inputBairro" class="sr-only">Bairro</label>
+                <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro" >
+                </br>
+                <label for="inputCidade" class="sr-only">Cidade</label>
+                <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade" readonly="true">
+                </br>
+                <label for="inputUF" class="sr-only">UF</label>
+                <input type="text" class="form-control" name="uf" id="uf" readonly="true" placeholder="UF">
+                </br>
+            </div>
+
+            <div class="col-md-6">
+
+                <h3 class="form-signin-heading text-center">Contato</h3>
+
+                <label for="inputTelefone" class="sr-only">Telefone</label>
+                <input type="text" class="form-control" name="telefone" id="telefone" placeholder="Telefone">
+                </br>
+                <label for="inputEmail" class="sr-only">Email</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email: @">
+                </br>
+                <label for="inputAdd" class="sr-only">Informações Adicionais</label>
+                <input type="text" class="form-control" name="add" id="add" placeholder="Informações Adicionais">
+                </br>
+                <h3 class="form-signin-heading text-center">Imagens (arquivos de até 3 MB)</h3>
+                <label for="inputFoto" class="sr-only">Fotos</label>
+                <input type="file" class="form-control" name="imagem" id="imagem" placeholder="Fotos" accept="image/*">
+                </br>
+                <label for="inputFoto" class="sr-only">Fotos</label>
+                <input type="file" class="form-control" name="imagem2" id="imagem3" placeholder="Fotos" accept="image/*">
+                </br>
+                <label for="inputFoto" class="sr-only">Fotos</label>
+                <input type="file" class="form-control" name="imagem3" id="imagem3" placeholder="Fotos" accept="image/*">
+                </br>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
+</div>
+
+{% endblock %}

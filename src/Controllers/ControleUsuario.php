@@ -25,7 +25,7 @@ class ControleUsuario {
     }
 
     public function telaLogin() {
-        return $this->response->setContent($this->twig->render('Login.php'));
+        return $this->response->setContent($this->twig->render('Login.html'));
     }
 
     public function validaLogin() {
@@ -49,11 +49,11 @@ class ControleUsuario {
     }
 
     public function paineldeControle() {
-        return $this->response->setContent($this->twig->render('PaineldeControle.php',  array ('fulano'=> $this->sessao->get("nome"))));
+        return $this->response->setContent($this->twig->render('PaineldeControle.html',  array ('fulano'=> $this->sessao->get("nome"))));
     }
 
     public function cadastroUsuario() {
-        return $this->response->setContent($this->twig->render('CadastroUsuario.php'));
+        return $this->response->setContent($this->twig->render('CadastroUsuario.html'));
     }
 
     public function salvarUsuario() {

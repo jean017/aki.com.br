@@ -25,7 +25,7 @@ class ControleEmpresa {
     }
 
     public function paineldeControle() {
-        return $this->response->setContent($this->twig->render('PaineldeControle.php', array('fulano' => $this->sessao->get("nome"))));
+        return $this->response->setContent($this->twig->render('PaineldeControle.html', array('fulano' => $this->sessao->get("nome"))));
     }
 
     public function cadastroEmpresa() {
@@ -37,7 +37,7 @@ class ControleEmpresa {
 //            
 //            echo"</br>".$dados->descricao;
 //             
-        return $this->response->setContent($this->twig->render('CadastroEmpresa.php', array('opcoes' => $categoria)));
+        return $this->response->setContent($this->twig->render('CadastroEmpresa.html', array('opcoes' => $categoria)));
     }
 
     public function salvarEmpresa() {
