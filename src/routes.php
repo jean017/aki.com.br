@@ -35,6 +35,10 @@ $rotas->add('paineldecontrole', new Route('/paineldecontrole', array('_controlle
     'Aki\Controllers\ControleUsuario',
     '_method' => 'paineldeControle')));
 
+$rotas->add('sair', new Route('/sair', array('_controller' =>
+    'Aki\Controllers\ControleUsuario',
+    '_method' => 'encerraLogin')));
+
 $rotas->add('cadastroempresa', new Route('/cadastroempresa', array('_controller' =>
     'Aki\Controllers\ControleEmpresa',
     '_method' => 'cadastroEmpresa')));

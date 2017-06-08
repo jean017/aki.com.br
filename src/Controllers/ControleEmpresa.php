@@ -25,16 +25,19 @@ class ControleEmpresa {
         $this->sessao = $sessao;
     }
 
-    public function paineldeControle() {
-        return $this->response->setContent($this->twig->render('PaineldeControle.html', array('fulano' => $this->sessao->get("nome"))));
-    }
-
     public function cadastroEmpresa() {
 
-        $modelo = new ModeloCategoria();
-        $categorias = $modelo->listarCategoriasBD();
-           
-        return $this->response->setContent($this->twig->render('CadastroEmpresa.html', array('opcoesCategorias' => $categorias)));
+        if ($_SESSION == null) {
+
+            $destino = "/login";
+            $this->redireciona($destino);
+        } else {
+
+            $modelo = new ModeloCategoria();
+            $categorias = $modelo->listarCategoriasBD();
+
+            return $this->response->setContent($this->twig->render('CadastroEmpresa.html', array('opcoesCategorias' => $categorias)));
+        }
     }
 
     public function salvarEmpresa() {
@@ -61,19 +64,20 @@ class ControleEmpresa {
         $imagens[1] = $this->request->files->get('imagem2');
         $imagens[2] = $this->request->files->get('imagem3');
 
-        $modelo = new ModeloEmpresa();
-        $idEmpresa = $modelo->inserirBD($empresa);
+        $modeloEmpresa = new ModeloEmpresa();
+ 
+        $idEmpresa = $modeloEmpresa->inserirBD($empresa, $this->sessao->get('id'));
 
         if ($imagens[0] != NULL) {
-            $modelo->inserirBDImagem($idEmpresa, $imagens[0]);
+            $modeloEmpresa->inserirBDImagem($idEmpresa, $imagens[0]);
         }
 
         if ($imagens[1] != NULL) {
-            $modelo->inserirBDImagem($idEmpresa, $imagens[1]);
+            $modeloEmpresa->inserirBDImagem($idEmpresa, $imagens[1]);
         }
 
         if ($imagens[2] != NULL) {
-            $modelo->inserirBDImagem($idEmpresa, $imagens[2]);
+            $modeloEmpresa->inserirBDImagem($idEmpresa, $imagens[2]);
         }
 
         $destino = "/paineldecontrole";

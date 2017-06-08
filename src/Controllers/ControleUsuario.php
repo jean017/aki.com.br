@@ -32,6 +32,7 @@ class ControleUsuario {
         $usuario = new Usuario();
         $usuario->setUsuario($this->request->get('usuario'));
         $usuario->setSenha($this->request->get('senha'));
+        $usuario->setEmail($this->request->get('usuario'));
         $modelo = new ModeloUsuario();
         $usuario = $modelo->Login($usuario);
 
@@ -40,6 +41,8 @@ class ControleUsuario {
             $usuario->senha = '';
             $this->sessao->add("usuario", $usuario->usuario);
             $this->sessao->add("nome", $usuario->nome);
+            $this->sessao->add("email", $usuario->email);
+            $this->sessao->add("id", $usuario->idusuario);
             $destino = "/paineldecontrole";
             $this->redireciona($destino);
         } else {
@@ -48,8 +51,22 @@ class ControleUsuario {
         }
     }
 
+    public function encerraLogin() {
+        $this->sessao->del();
+
+        $destino = "/";
+        $this->redireciona($destino);
+    }
+
     public function paineldeControle() {
-        return $this->response->setContent($this->twig->render('PaineldeControle.html',  array ('fulano'=> $this->sessao->get("nome"))));
+
+        if ($_SESSION == null) {
+
+            $destino = "/login";
+            $this->redireciona($destino);
+        } else {
+            return $this->response->setContent($this->twig->render('PaineldeControle.html', array('usuario' => $this->sessao->get("nome"))));
+        }
     }
 
     public function cadastroUsuario() {
@@ -65,8 +82,10 @@ class ControleUsuario {
         $modelo = new ModeloUsuario();
         $modelo->inserirBD($usuario);
 
-        $destino = "/paineldecontrole";
-        $this->redireciona($destino);
+        echo "<script>window.location='/login';alert('Obrigado $usuario->nome por se cadastrar, faça o login para ter acesso ao nosso Painel de Controle.');</script>";
+
+//        $destino = "/paineldecontrole";
+//        $this->redireciona($destino);
     }
 
     /*

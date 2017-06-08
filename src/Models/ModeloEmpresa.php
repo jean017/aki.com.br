@@ -13,14 +13,14 @@ class ModeloEmpresa {
         
     }
 
-    public function inserirBD(Empresa $empresa) {
+    public function inserirBD(Empresa $empresa, $idUsuario) {
 
         try {
 
             $sql = "INSERT INTO empresa (razao_social, fantasia, telefone, info_add, cnpj, fkcategoria, "
-                    . "lagradouro, numero, bairro, cep, uf, cidade, email) "
+                    . "lagradouro, numero, bairro, cep, uf, cidade, email, fkusuario) "
                     . "VALUES (:razao_social, :fantasia, :telefone, :info_add, :cnpj, :fkcategoria, "
-                    . ":lagradouro, :numero, :bairro, :cep, :uf, :cidade, :email)";
+                    . ":lagradouro, :numero, :bairro, :cep, :uf, :cidade, :email, :fkusuario)";
 
 
             $p_sql = Conexao::getInstance()->prepare($sql);
@@ -38,6 +38,7 @@ class ModeloEmpresa {
             $p_sql->bindValue(':uf', $empresa->getUf());
             $p_sql->bindValue(':cidade', $empresa->getCidade());
             $p_sql->bindValue(':email', $empresa->getEmail());
+            $p_sql->bindValue(':fkusuario', $idUsuario);
 
             $p_sql->execute();
 
