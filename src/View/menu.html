@@ -35,9 +35,17 @@
                 <button type="submit" class="btn btn-default">Buscar</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-
-                <li><a href="/cadastrousuario"><span class="glyphicon glyphicon-user"></span> Cadastrar-se </a></li>
-                <li><a href="/paineldecontrole"><span class="glyphicon glyphicon-log-out"></span> Painel de Controle </a></li>
+]
+                {% if VerificaSessao() %}
+                
+                <li><a href="/paineldecontrole"><span class="glyphicon glyphicon-user"></span> {{ VerificaSessao() }} </a></li>
+                <li><a href="/sair"><span class="glyphicon glyphicon-log-out"></span> Sair </a></li>
+                
+                {% else %}
+                
+                 <li><a href="/cadastrousuario"><span class="glyphicon glyphicon-user"></span> Cadastrar-se </a></li>
+                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Entrar </a></li>
+                {% endif %}
 
                 <li><a> </a></li>
             </ul>
