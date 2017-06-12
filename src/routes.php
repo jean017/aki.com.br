@@ -67,5 +67,8 @@ $rotas->add('empresas', new Route('/empresas', array('_controller' =>
     'Aki\Controllers\ControleEmpresa',
     '_method' => 'ViewEmpresas')));
 
+$rotas->add('empresasCompletas', new Route('/empresacompleta', array('_controller' =>
+    'Aki\Controllers\ControleEmpresa',
+    '_method' => 'ViewEmpresasCompletas')));
 
 return $rotas;

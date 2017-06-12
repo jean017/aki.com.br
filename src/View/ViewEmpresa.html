@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Nova Empresa{% endblock %}
+{% block title %}Empresas{% endblock %}
 
 {% block body %}
 
@@ -12,7 +12,7 @@
 
     <div class="row">
 
-        <h1 class="form-signin text-center">{{ categoria }}</h1>
+        <h1 class="form-signin text-center"><strong>{{ categoria }}</strong></h1>
         </br>
         </br>
 
@@ -27,88 +27,27 @@
                 <h2>{{ listaEmpresas.telefone }}</h2>
                 </br>
                 <p><strong> Endereço:</strong> {{ listaEmpresas.lagradouro }}, {{ listaEmpresas.numero }} 
-                    <strong>Bairro: {{ listaEmpresas.bairro }}</strong></p>
+                    <strong>Bairro:</strong> {{ listaEmpresas.bairro }}</p>
                 </br>
-                <p>{{ listaEmpresas.cep }}, {{ listaEmpresas.cidade }}<strong>Estado: </strong>{{ listaEmpresas.uf }}</p>
+                <p>{{ listaEmpresas.cep }}, {{ listaEmpresas.cidade }}/{{ listaEmpresas.uf }}</p>
                 </br>
             </div>
+             <form class="form-signin" method="post" action="/empresacompleta">
+
+                    <button class="btn btn-success btn-lg" type="submit" name="empresa" value="{{ listaEmpresas.razao_social }}">Visualizar Dados Completos</button>
+
+                    </br>
+                </form>
+            <!--            <p><a class="btn btn-success btn-lg " href="/empresacompleta" role="button">Visualizar Dados Completos</a></p>-->
+            
+            </br>
+            </br>
         </div>
 
         {% endfor %}
 
     </div>
 </div>
-
-
-<!--<form class="form-signin" action="/salvarempresa" method="post" enctype="multipart/form-data">
-
-    <div class="col-md-6">
-        <h3 class="form-signin-heading text-center">Dados</h3>
-        <label for="inputRazaoSocial" class="sr-only">Razão Social</label>
-        <input type="text" class="form-control" placeholder="Razão Social" name="razao" required autofocus>
-        </br>
-        <label for="inputFantasia" class="sr-only">Nome Fantasia</label>
-        <input type="text" class="form-control" name="fantasia" placeholder="Nome Fantasia" required>
-        </br>
-        <label for="inputCNPJ" class="sr-only">CNPJ</label>
-        <input type="text" class="form-control" name="cnpj" id="cnpj" placeholder="CNPJ" required>
-        </br>
-        <select class="form-control" name="categoria">
-            <option value="">Selecione uma Categoria</option>
-            {% for categoria in opcoesCategorias %}
-            <option value={{ categoria.idcategoria }} >
-                    {{ categoria.descricao }}</br></option>
-            {% endfor %}
-        </select>
-        <br />
-        <label for="inputCEP" class="sr-only">CEP</label>
-        <input type="text" class="form-control" name="cep" id="cep" value="" placeholder="CEP" required autofocus>
-        </br>
-        <label for="inputLagradouro" class="sr-only">Lagradouro</label>
-        <input type="text" class="form-control" name="lagradouro" id="rua" placeholder="Lagradouro">
-        </br>
-        <label for="inputNumero" class="sr-only">Número</label>
-        <input type="text" class="form-control" name="numero" id="numero" placeholder="Número">
-        </br>
-        <label for="inputBairro" class="sr-only">Bairro</label>
-        <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro" >
-        </br>
-        <label for="inputCidade" class="sr-only">Cidade</label>
-        <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade" readonly="true">
-        </br>
-        <label for="inputUF" class="sr-only">UF</label>
-        <input type="text" class="form-control" name="uf" id="uf" readonly="true" placeholder="UF">
-        </br>
-    </div>
-
-    <div class="col-md-6">
-
-        <h3 class="form-signin-heading text-center">Contato</h3>
-
-        <label for="inputTelefone" class="sr-only">Telefone</label>
-        <input type="text" class="form-control" name="telefone" id="telefone" placeholder="Telefone">
-        </br>
-        <label for="inputEmail" class="sr-only">Email</label>
-        <input type="email" class="form-control" name="email" id="email" placeholder="Email: @">
-        </br>
-        <label for="inputAdd" class="sr-only">Informações Adicionais</label>
-        <input type="text" class="form-control" name="add" id="add" placeholder="Informações Adicionais">
-        </br>
-        <h3 class="form-signin-heading text-center">Imagens (arquivos de até 3 MB)</h3>
-        <label for="inputFoto" class="sr-only">Fotos</label>
-        <input type="file" class="form-control" name="imagem" id="imagem" placeholder="Fotos" accept="image/*">
-        </br>
-        <label for="inputFoto" class="sr-only">Fotos</label>
-        <input type="file" class="form-control" name="imagem2" id="imagem3" placeholder="Fotos" accept="image/*">
-        </br>
-        <label for="inputFoto" class="sr-only">Fotos</label>
-        <input type="file" class="form-control" name="imagem3" id="imagem3" placeholder="Fotos" accept="image/*">
-        </br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
-    </div>
-</form>
-</div>
-</div>-->
 
 <div class="container">
     <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">

@@ -87,11 +87,28 @@ class ControleEmpresa {
     public function ViewEmpresas() {
 
         $categoria = $this->request->get('categoriaBusca');
-        
+
         $modelo = new ModeloEmpresa();
         $empresas = $modelo->listarBDCategoria($categoria);
 
         return $this->response->setContent($this->twig->render('ViewEmpresa.html', array('categoria' => $categoria, 'empresas' => $empresas)));
+    }
+
+    public function ViewEmpresasCompletas() {
+
+        if ($_SESSION == null) {
+
+            $destino = "/login";
+            $this->redireciona($destino);
+        } else {
+
+            $empresa = $this->request->get('empresa');
+
+            $modelo = new ModeloEmpresa();
+            $empresas = $modelo->listarBDCompleta($empresa);
+
+            return $this->response->setContent($this->twig->render('ViewEmpresaCompleta.html', array('empresa' => $empresa, 'empresas' => $empresas)));
+        }
     }
 
     public function redireciona($destino) {
