@@ -36,9 +36,10 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
 ]
-                {% if VerificaSessao() %}
+                {% if VerificaSessao() %}]
                 
-                <li><a href="/paineldecontrole"><span class="glyphicon glyphicon-user"></span> {{ VerificaSessao() }} </a></li>
+                <li><a href="/minhaconta"><span class="glyphicon glyphicon-user"></span> {{ VerificaSessao() }} </a></li>
+                <li><a href="/paineldecontrole"><span class="fa fa-cog"></span> Painel de Controle </a></li>
                 <li><a href="/sair"><span class="glyphicon glyphicon-log-out"></span> Sair </a></li>
                 
                 {% else %}

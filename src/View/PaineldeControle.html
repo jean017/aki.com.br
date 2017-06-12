@@ -4,34 +4,37 @@
 
 {% block body %}
 
-        <div class="jumbotron">
-            <div class="container">
-                <h1>Painel Administrativo de, {{ usuario }} </h1>
-                <div class="container">
-                    <div class="row">                    
-                        <p>Aqui você pode gerenciar suas empresas, deixando-a sempre com dados atualizados. </br> Além de seus dados pessoais de conta como email, usuário e senha.</p>                       
-                        </br></br>
-                        <div class="col-md-4">
-                            <p><a class="btn btn-success btn-lg " href="#" role="button">Adicionar Empresa</a></p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><a class="btn btn-success btn-lg" href="#" role="button">Atualizar Dados da Empresa</a></p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><a class="btn btn-success btn-lg" href="#" role="button">Atualizar Meus Dados</a></p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><a class="btn btn-success btn-lg" href="#" role="button">Deletar Empresa</a></p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><a class="btn btn-success btn-lg" href="#" role="button">Minhas Empresas</a></p>
-                        </div>
-                        <div class="col-md-4">
-                            <p><a class="btn btn-danger btn-lg" href="/sair" role="button">Sair</a></p>
-                        </div>
-                    </div>
+<div class="jumbotron">
+    <div class="container">
+        <h1>Painel Administrativo de, {{ usuario }} </h1>
+        <div class="container">
+            <div class="row">                    
+                <p>Aqui você pode gerenciar suas empresas, deixando-a sempre com dados atualizados. </br> Além de seus dados pessoais de conta como email, usuário e senha.</p>                       
+                </br></br>
+                <div class="col-md-4">
+                    <p><a class="btn btn-success btn-lg " href="/cadastrocategoria" role="button">Adicionar Categoria</a></p>
+                </div>
+                <div class="col-md-4">
+                    <p><a class="btn btn-success btn-lg " href="/cadastroempresa" role="button">Adicionar Empresa</a></p>
+                </div>
+                <div class="col-md-4">
+                    <p><a class="btn btn-success btn-lg" href="#" role="button">Atualizar Dados da Empresa</a></p>
+                </div>
+                <div class="col-md-4">
+                    <p><a class="btn btn-success btn-lg" href="#" role="button">Atualizar Meus Dados</a></p>
+                </div>
+                <div class="col-md-4">
+                    <p><a class="btn btn-success btn-lg" href="#" role="button">Deletar Empresa</a></p>
+                </div>
+                <div class="col-md-4">
+                    <p><a class="btn btn-success btn-lg" href="#" role="button">Minhas Empresas</a></p>
+                </div>
+                <div class="col-md-4">
+                    <p><a class="btn btn-danger btn-lg" href="/sair" role="button">Sair</a></p>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
 {% endblock %}

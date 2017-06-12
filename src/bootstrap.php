@@ -30,7 +30,7 @@ $twig = new Twig_Environment($loader);
 
 $function = new Twig_Function('VerificaSessao', function(){
     if($_SESSION != null){
-        return $usuarioLogao = $_SESSION['noh']['nome'];
+        return " ". $usuarioLogao = $_SESSION['noh']['nome'];
     }else{
         return null;
     }

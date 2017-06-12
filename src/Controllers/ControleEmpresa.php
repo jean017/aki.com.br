@@ -65,7 +65,7 @@ class ControleEmpresa {
         $imagens[2] = $this->request->files->get('imagem3');
 
         $modeloEmpresa = new ModeloEmpresa();
- 
+
         $idEmpresa = $modeloEmpresa->inserirBD($empresa, $this->sessao->get('id'));
 
         if ($imagens[0] != NULL) {
@@ -84,27 +84,15 @@ class ControleEmpresa {
         $this->redireciona($destino);
     }
 
-    /*
-      public function alterarUsuario() {
-      $usuario = new Usuario();
-      $usuario->setIdUsuario($this->request->get(//dados form));
-      $modelo = new ModeloUsuario();
-      $modelo->alterarBD($usuario);
-      }
+    public function ViewEmpresas() {
 
-      public function excluirUsuario() {
-      $usuario = new Usuario();
-      $usuario->setIdUsuario($this->request->get(//dados form));
-      $modelo = new ModeloUsuario();
-      $modelo->excluirBD($usuario);
-      }
+        $categoria = $this->request->get('categoriaBusca');
+        
+        $modelo = new ModeloEmpresa();
+        $empresas = $modelo->listarBDCategoria($categoria);
 
-      public function listarUsuario() {
-      $modelo = new ModeloUsuario();
-      $modelo->listarBD();
-      }
-     * 
-     */
+        return $this->response->setContent($this->twig->render('ViewEmpresa.html', array('categoria' => $categoria, 'empresas' => $empresas)));
+    }
 
     public function redireciona($destino) {
         $redirect = new RedirectResponse($destino);

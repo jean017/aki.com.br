@@ -14,13 +14,16 @@
         </br></br>
         <div class="col-md-3"></div>
         <div class="col-md-6">
-                {% for categoria in opcoesCategorias %}
-                <div class="col-md-4">
+            {% for categoria in opcoesCategorias %}
+            <div class="col-md-4">
+                <form class="form-signin" method="post" action="\empresas">
 
-                    <p><a class="btn btn-primary btn-lg " href="/{{ categoria.descricao }}" role="button">{{ categoria.descricao }}</a></p>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="categoriaBusca" value="{{ categoria.descricao }}"> {{ categoria.descricao }} </button>
 
-                </div>
-                {% endfor %}
+                    </br>
+                </form>
+            </div>
+            {% endfor %}
         </div>
         <div class="col-md-3"></div>
     </div>

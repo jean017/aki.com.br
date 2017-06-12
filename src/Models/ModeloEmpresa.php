@@ -128,10 +128,28 @@ class ModeloEmpresa {
             $p_sql = Conexao::getInstance()->prepare($sql);
             $p_sql->execute();
 
-            return $p_sql->fetchAll(PDO::FETCH_CLASS, "Aki\Entity\Empresa");
+            return $p_sql->fetchAll(PDO::FETCH_OBJ);
         } catch (Exception $ex) {
 
             print_r('Erro na Listagem de Empresa!\n' . $ex);
         }
     }
+
+    public function listarBDCategoria($categoria) {
+
+        try {
+            $sql = "SELECT * FROM empresa, categoria WHERE empresa.fkcategoria = categoria.idcategoria "
+                    . "AND categoria.descricao = :categoria";
+
+            $p_sql = Conexao::getInstance()->prepare($sql);
+            $p_sql->bindValue(':categoria', $categoria);
+            $p_sql->execute();
+
+            return $p_sql->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $ex) {
+
+            print_r('Erro na Listagem de Empresa por categoria!\n' . $ex);
+        }
+    }
+
 }
