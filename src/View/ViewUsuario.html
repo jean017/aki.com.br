@@ -11,15 +11,15 @@
 <div class="container">
 
     <div class="row">
-        
+
         {% for listaUsuario in usuario %}
 
-        <h1 class="form-signin text-center"><strong>Dados da conta de {{ listaUsuario.nome }}</strong></h1>
+        <h1 class="form-signin text-center"><strong>Dados da Conta de {{ listaUsuario.nome }}</strong></h1>
         </br>
         </br>
 
         <div class="col-md-12">
-                 <div class="lead">
+            <div class="lead">
                 <h2><strong>Usuário: </strong>{{ listaUsuario.usuario }}</h2>
                 </br>
                 <h3><strong>Senha: </strong> ********** </h3>
@@ -27,16 +27,9 @@
                 <h3><strong>Email: </strong>{{ listaUsuario.email }}</h3>
                 </br>
             </div>
-             <form class="form-signin" method="post" action="/editarusuario">
 
-                    <button class="btn btn-warning btn-lg" type="submit" >Editar Dados</button>
+            <p><a class="btn btn-warning btn-lg " href="/editarusuario" role="button">Editar Dados</a></p>
 
-                    </br>
-                </form>
-            <!--            <p><a class="btn btn-success btn-lg " href="/empresacompleta" role="button">Visualizar Dados Completos</a></p>-->
-            
-            </br>
-            </br>
         </div>
 
         {% endfor %}

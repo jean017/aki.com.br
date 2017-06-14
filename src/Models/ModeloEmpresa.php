@@ -134,6 +134,21 @@ class ModeloEmpresa {
             print_r('Erro na Listagem de Empresa!\n' . $ex);
         }
     }
+    
+    public function listarBDEmpresaID($empresa) {
+        try {
+            $sql = "SELECT * FROM empresa WHERE idempresa = :idempresa";
+
+            $p_sql = Conexao::getInstance()->prepare($sql);
+            $p_sql->bindValue(':idempresa', $empresa);
+            $p_sql->execute();
+
+            return $p_sql->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $ex) {
+
+            print_r('Erro na Listagem de Empresa por id!\n' . $ex);
+        }
+    }
 
     public function listarBDCategoria($categoria) {
 
@@ -168,6 +183,25 @@ class ModeloEmpresa {
         } catch (Exception $ex) {
 
             print_r('Erro na Listagem de Empresa Completa!\n' . $ex);
+        }
+    }
+    
+        public function listarBDCompletaUsuario($usuario) {
+
+        try {
+            $sql = "SELECT * FROM empresa, categoria, classificacao WHERE "
+                    . "classificacao.empresa = empresa.idempresa "
+                    . "AND empresa.fkcategoria = categoria.idcategoria "
+                    . "AND empresa.fkusuario = :usuario";
+
+            $p_sql = Conexao::getInstance()->prepare($sql);
+            $p_sql->bindValue(':usuario', $usuario);
+            $p_sql->execute();
+
+            return $p_sql->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $ex) {
+
+            print_r('Erro na Listagem de Empresa Completa por Usuário!\n' . $ex);
         }
     }
 

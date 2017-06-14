@@ -102,8 +102,8 @@ class ControleUsuario {
             return $this->response->setContent($this->twig->render('ViewUsuario.html', array('usuario' => $usuario)));
         }
     }
-    
-        public function EditarUsuario() {
+
+    public function EditarUsuario() {
 
         if ($_SESSION == null) {
 
@@ -115,6 +115,28 @@ class ControleUsuario {
             $usuario = $modelo->listarBDUsuario($this->sessao->get('id'));
 
             return $this->response->setContent($this->twig->render('EditarUsuario.html', array('usuario' => $usuario)));
+        }
+    }
+
+    public function alterarUsuario() {
+
+        if ($_SESSION == null) {
+
+            $destino = "/login";
+            $this->redireciona($destino);
+        } else {
+
+            $usuario = new Usuario();
+            $usuario->setIdUsuario($this->sessao->get('id'));
+            $usuario->setUsuario($this->request->get('usuario'));
+            $usuario->setSenha($this->request->get('senha'));
+            $usuario->setNome($this->request->get('nome'));
+            $usuario->setEmail($this->request->get('email'));
+
+            $modelo = new ModeloUsuario();
+            $modelo->alterarBD($usuario);
+
+            echo "<script>window.location='/login';alert('Obrigado $usuario->nome por se cadastrar, faça o login para ter acesso ao nosso Painel de Controle.');</script>";
         }
     }
 

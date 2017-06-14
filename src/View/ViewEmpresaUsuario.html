@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Empresas{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        <h1 class="form-signin text-center"><strong>Lista das Empresas Cadastradas por {{ usuario }}</strong></h1>
+        </br>
+        </br>
+
+        <div class="container">
+            </br>
+            </br>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Razão Social</th>
+                        <th>Nome Fantasia</th>
+                        <th>CNPJ</th>
+                        <th>Telefone</th>
+                        <th>Cidade/ Estado</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                {% for listaEmpresas in empresas %}
+
+                <tbody>
+                    <tr>
+                        <td>{{ listaEmpresas.razao_social }}</td>
+                        <td>{{ listaEmpresas.fantasia }}</td>
+                        <td>{{ listaEmpresas.cnpj }}</td>
+                        <td>{{ listaEmpresas.telefone }}</td>
+                        <td>{{ listaEmpresas.cidade }}/{{ listaEmpresas.uf }}</td>
+                        <td><form class="form-signin" method="post" action="/editarempresa">
+                                <button class="btn btn-warning btn-md" type="submit" name="editarempresa" value="{{ listaEmpresas.idempresa }}">Editar Dados</button></form></td>
+                        <td><form class="form-signin" method="post" action="/excluirempresa">
+                                <button class="btn btn-danger btn-md" type="submit" name="excluirempresa" value="{{ listaEmpresas.idempresa }}">Excluir Empresa</button></form></td>
+                    </tr>
+                </tbody>
+
+                {% endfor %}
+
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<div class="container">
+    <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
+</div>
+
+{% endblock %}

@@ -57,24 +57,6 @@ class ModeloUsuario {
         }
     }
 
-    public function excluirBD(Usuario $usuario) {
-
-        try {
-            $sql = "DELETE FROM usuario WHERE idusuario = :idusuario";
-
-            $p_sql = Conexao::getInstance()->prepare($sql);
-
-            $p_sql->bindValue(':idusuario', $usuario->getIdUsuario());
-
-            $p_sql->execute();
-
-            return Conexao::getInstance()->lastInsertId();
-        } catch (Exception $ex) {
-
-            print_r('Erro na Exclusão de Usúario!\n Erro: ' . $ex);
-        }
-    }
-
     public function listarBD() {
         try {
             $sql = "SELECT * FROM usuario";

@@ -34,24 +34,82 @@
                 <p><strong>Email:</strong> {{ listaEmpresas.email }}</p> 
             </div>
 
-            {% endfor %}
+
+
+            <div class="col-md-12">
+                <div class="carousel slide" id="carousel-745777">
+                    <ol class="carousel-indicators">
+                        <li class="active" data-slide-to="0" data-target="#carousel-745777">
+                        </li>
+
+                        {% if imagem2 %}
+
+                        <li data-slide-to="1" data-target="#carousel-745777">
+                        </li>
+
+                        {% endif %}
+
+                        {% if imagem3 %}
+
+                        <li data-slide-to="2" data-target="#carousel-745777">
+                        </li>
+
+                        {% endif %}
+
+                    </ol>
+                    <div class="carousel-inner">
+
+                        <div class="item active">
+                            <img alt="{{ nome }}" src="data:{{ tipo }};base64, {{ imagem }}" style="width: 100%; height: 100%;"/>
+                            <div class="carousel-caption">
+                                <h1>
+                                    {{ empresa }}
+                                </h1>
+                            </div>
+                        </div>
+
+                        {% if imagem2 %}
+
+                        <div class="item">
+                            <img alt="{{ nome2 }}" src="data:{{ tipo2 }};base64, {{ imagem2 }}" style="width: 100%; height: 100%;"/>
+                            <div class="carousel-caption">
+                                <h1>
+                                    {{ empresa }}
+                                </h1>
+                            </div>
+                        </div>
+
+                        {% endif %}
+
+                        {% if imagem3 %}
+
+                        <div class="item">
+                            <img alt="{{ nome3 }}" src="data:{{ tipo3 }};base64, {{ imagem3 }}" style="width: 100%; height: 100%;"/>
+                            <div class="carousel-caption">
+                                <h1>
+                                    {{ empresa }}
+                                </h1>
+                            </div>
+                        </div>
+
+                        {% endif %}
+
+                    </div> <a class="left carousel-control" href="#carousel-745777" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-745777" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+                </br>
+                </br>
+            </div>
 
             <div class="col-md-12">
                 <div class="col-md-4">
-                    <img alt="{{ nome }}" src="data:{{ tipo }};base64, {{ imagem }}" style="width: 100%; height: 100%;"/>
-                </div>
-                <div class="col-md-4">
-                    <img alt="{{ nome2 }}" src="data:{{ tipo2 }};base64, {{ imagem2 }}" style="width: 100%; height: 100%;"/>
-                </div>
-                <div class="col-md-4">
-                    <img alt="{{ nome3 }}" src="data:{{ tipo3 }};base64, {{ imagem3 }}" style="width: 100%; height: 100%;"/>
+
+                    <p><a class="btn btn-success btn-lg " href="/empresacompleta" role="button">Visualizar Dados Completos</a></p>
+
                 </div>
             </div>
-            <p><a class="btn btn-success btn-lg " href="/empresacompleta" role="button">Visualizar Dados Completos</a></p>
-
-            </br>
-            </br>
         </div>
+
+        {% endfor %}
 
     </div>
 </div>

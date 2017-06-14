@@ -31,6 +31,10 @@ $rotas->add('editarusuario', new Route('/editarusuario', array('_controller' =>
     'Aki\Controllers\ControleUsuario',
     '_method' => 'EditarUsuario')));
 
+$rotas->add('alterarusuario', new Route('/alterarusuario', array('_controller' =>
+    'Aki\Controllers\ControleUsuario',
+    '_method' => 'alterarUsuario')));
+
 $rotas->add('login', new Route('/login', array('_controller' =>
     'Aki\Controllers\ControleUsuario',
     '_method' => 'telaLogin')));
@@ -78,5 +82,21 @@ $rotas->add('empresas', new Route('/empresas', array('_controller' =>
 $rotas->add('empresasCompletas', new Route('/empresacompleta', array('_controller' =>
     'Aki\Controllers\ControleEmpresa',
     '_method' => 'ViewEmpresasCompletas')));
+
+$rotas->add('minhasEmpresas', new Route('/minhasempresas', array('_controller' =>
+    'Aki\Controllers\ControleEmpresa',
+    '_method' => 'ViewMinhasEmpresas')));
+
+$rotas->add('editarempresa', new Route('/editarempresa', array('_controller' =>
+    'Aki\Controllers\ControleEmpresa',
+    '_method' => 'EditarEmpresa')));
+
+$rotas->add('alterarusuario', new Route('/alterarusuario', array('_controller' =>
+    'Aki\Controllers\ControleUsuario',
+    '_method' => 'alterarUsuario')));
+
+$rotas->add('excluirempresa', new Route('/excluirempresa', array('_controller' =>
+    'Aki\Controllers\ControleUsuario',
+    '_method' => 'EditarUsuario')));
 
 return $rotas;

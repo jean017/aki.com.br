@@ -133,6 +133,40 @@ class ControleEmpresa {
         }
     }
 
+    public function ViewMinhasEmpresas() {
+
+        if ($_SESSION == null) {
+
+            $destino = "/login";
+            $this->redireciona($destino);
+        } else {
+
+            $modelo = new ModeloEmpresa();
+            $empresas = $modelo->listarBDCompletaUsuario($this->sessao->get('id'));
+
+            return $this->response->setContent($this->twig->render('ViewEmpresaUsuario.html', array('usuario' => $this->sessao->get('nome'), 'empresas' => $empresas,)));
+        }
+    }
+    
+     public function EditarEmpresa() {
+         
+         $idempresa = $this->request->get('editarempresa');
+         
+         echo $idempresa;
+
+        if ($_SESSION == null) {
+
+            $destino = "/login";
+            $this->redireciona($destino);
+        } else {
+
+            $modelo = new ModeloEmpresa();
+            $empresa = $modelo->listarBDEmpresaID($idempresaempresa);
+
+            return $this->response->setContent($this->twig->render('EditarUsuario.html', array('usuario' => $usuario)));
+        }
+    }
+
     public function redireciona($destino) {
         $redirect = new RedirectResponse($destino);
         $redirect->send();
