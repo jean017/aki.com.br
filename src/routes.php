@@ -23,6 +23,14 @@ $rotas->add('salvarusuario', new Route('/salvarusuario', array('_controller' =>
     'Aki\Controllers\ControleUsuario',
     '_method' => 'salvarUsuario')));
 
+$rotas->add('minhaconta', new Route('/minhaconta', array('_controller' =>
+    'Aki\Controllers\ControleUsuario',
+    '_method' => 'ViewUsuario')));
+
+$rotas->add('editarusuario', new Route('/editarusuario', array('_controller' =>
+    'Aki\Controllers\ControleUsuario',
+    '_method' => 'EditarUsuario')));
+
 $rotas->add('login', new Route('/login', array('_controller' =>
     'Aki\Controllers\ControleUsuario',
     '_method' => 'telaLogin')));

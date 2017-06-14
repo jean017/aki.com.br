@@ -74,7 +74,7 @@ class ModeloCategoria {
     
       public function listarCategoriasBD() {
         try {
-            $sql = "SELECT * FROM categoria";
+            $sql = "SELECT * FROM categoria ORDER BY descricao ASC";
 
             $p_sql = Conexao::getInstance()->prepare($sql);
             $p_sql->execute();

@@ -19,12 +19,12 @@
         {% for listaEmpresas in empresas %}
 
         <div class="col-md-12">
-            <div class="lead">
-                <h1>{{ listaEmpresas.fantasia }}</h1>
+                 <div class="lead">
+                <h1><strong>{{ listaEmpresas.fantasia }}</strong></h1>
                 </br>
                 <h2>{{ listaEmpresas.razao_social }}</h2>
                 </br>
-                <h2>{{ listaEmpresas.telefone }}</h2>
+                <h2><strong>{{ listaEmpresas.telefone }}</strong></h2>
                 </br>
                 <p><strong> Endereço:</strong> {{ listaEmpresas.lagradouro }}, {{ listaEmpresas.numero }} 
                     <strong>Bairro:</strong> {{ listaEmpresas.bairro }}</p>

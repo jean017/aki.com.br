@@ -106,8 +106,30 @@ class ControleEmpresa {
 
             $modelo = new ModeloEmpresa();
             $empresas = $modelo->listarBDCompleta($empresa);
+            $imagens = $modelo->listarBDImagens($empresa);
 
-            return $this->response->setContent($this->twig->render('ViewEmpresaCompleta.html', array('empresa' => $empresa, 'empresas' => $empresas)));
+            if (!empty($imagens[0])) {
+                $imagem1 = $imagens[0];
+            } else {
+                $iamgem1 = null;
+            }
+
+            if (!empty($imagens[1])) {
+                $imagem2 = $imagens[1];
+            } else {
+                $iamgem2 = null;
+            }
+
+            if (!empty($imagens[2])) {
+                $imagem3 = $imagens[2];
+            } else {
+                $imagem3 = NULL;
+            }
+
+            return $this->response->setContent($this->twig->render('ViewEmpresaCompleta.html', array('empresa' => $empresa, 'empresas' => $empresas,
+                                'nome' => $imagem1['nome'], 'tipo' => $imagem1['tipo'], 'imagem' => base64_encode($imagem1['imagem']),
+                                'nome2' => $imagem2['nome'], 'tipo2' => $imagem2['tipo'], 'imagem2' => base64_encode($imagem2['imagem']),
+                                'nome3' => $imagem3['nome'], 'tipo3' => $imagem3['tipo'], 'imagem3' => base64_encode($imagem3['imagem']))));
         }
     }
 

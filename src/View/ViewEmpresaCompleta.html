@@ -33,42 +33,25 @@
                 </br>
                 <p><strong>Email:</strong> {{ listaEmpresas.email }}</p> 
             </div>
-            
-             <div class="carousel slide" id="carousel-745777">
-                <ol class="carousel-indicators">
-                    <li class="active" data-slide-to="0" data-target="#carousel-745777">
-                    </li>
-                    <li data-slide-to="1" data-target="#carousel-745777">
-                    </li>
-                    <li data-slide-to="2" data-target="#carousel-745777">
-                    </li>
-                </ol>
-                <div class="carousel-inner">
 
-                    <div class="item active">
-                        <img alt="{{ listaEmpresas.nome }}" src="{{ listaEmpresas.imagem }}" />
-                        <div class="carousel-caption">
-                            <h1>
-                                {{ listaEmpresas.fantasia }}
-                            </h1>
-                        </div>
-                    </div>
-                </div> <a class="left carousel-control" href="#carousel-745777" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-745777" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            {% endfor %}
+
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <img alt="{{ nome }}" src="data:{{ tipo }};base64, {{ imagem }}" style="width: 100%; height: 100%;"/>
+                </div>
+                <div class="col-md-4">
+                    <img alt="{{ nome2 }}" src="data:{{ tipo2 }};base64, {{ imagem2 }}" style="width: 100%; height: 100%;"/>
+                </div>
+                <div class="col-md-4">
+                    <img alt="{{ nome3 }}" src="data:{{ tipo3 }};base64, {{ imagem3 }}" style="width: 100%; height: 100%;"/>
+                </div>
             </div>
-            
-             <form class="form-signin" method="post" action="/empresacompleta">
+            <p><a class="btn btn-success btn-lg " href="/empresacompleta" role="button">Visualizar Dados Completos</a></p>
 
-                    <button class="btn btn-success btn-lg" type="submit" name="empresa" value="{{ listaEmpresas.razao_social }}">Visualizar Dados Completos</button>
-
-                    </br>
-                </form>
-            <!--            <p><a class="btn btn-success btn-lg " href="/empresacompleta" role="button">Visualizar Dados Completos</a></p>-->
-            
             </br>
             </br>
         </div>
-
-        {% endfor %}
 
     </div>
 </div>

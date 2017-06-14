@@ -155,19 +155,33 @@ class ModeloEmpresa {
     public function listarBDCompleta($empresa) {
 
         try {
-            $sql = "SELECT * FROM empresa, categoria, imagem, classificacao "
-                    . "WHERE imagem.fkempresa = empresa.idempresa "
-                    . "AND classificacao.empresa = empresa.idempresa "
+            $sql = "SELECT * FROM empresa, categoria, classificacao WHERE "
+                    . "classificacao.empresa = empresa.idempresa "
                     . "AND empresa.fkcategoria = categoria.idcategoria "
                     . "AND empresa.razao_social = :empresa";
 
             $p_sql = Conexao::getInstance()->prepare($sql);
             $p_sql->bindValue(':empresa', $empresa);
             $p_sql->execute();
-            
-           // print_r($p_sql->fetchAll(PDO::FETCH_OBJ));
 
             return $p_sql->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $ex) {
+
+            print_r('Erro na Listagem de Empresa Completa!\n' . $ex);
+        }
+    }
+
+    public function listarBDImagens($empresa) {
+
+        try {
+            $sql = "SELECT imagem.* FROM imagem, empresa WHERE "
+                    . "imagem.fkempresa = empresa.idempresa AND empresa.razao_social = :empresa";
+
+            $p_sql = Conexao::getInstance()->prepare($sql);
+            $p_sql->bindValue(':empresa', $empresa);
+            $p_sql->execute();
+
+            return $p_sql->fetchAll(PDO::FETCH_ASSOC);
         } catch (Exception $ex) {
 
             print_r('Erro na Listagem de Empresa Completa!\n' . $ex);

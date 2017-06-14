@@ -88,6 +88,36 @@ class ControleUsuario {
 //        $this->redireciona($destino);
     }
 
+    public function ViewUsuario() {
+
+        if ($_SESSION == null) {
+
+            $destino = "/login";
+            $this->redireciona($destino);
+        } else {
+
+            $modelo = new ModeloUsuario();
+            $usuario = $modelo->listarBDUsuario($this->sessao->get('id'));
+
+            return $this->response->setContent($this->twig->render('ViewUsuario.html', array('usuario' => $usuario)));
+        }
+    }
+    
+        public function EditarUsuario() {
+
+        if ($_SESSION == null) {
+
+            $destino = "/login";
+            $this->redireciona($destino);
+        } else {
+
+            $modelo = new ModeloUsuario();
+            $usuario = $modelo->listarBDUsuario($this->sessao->get('id'));
+
+            return $this->response->setContent($this->twig->render('EditarUsuario.html', array('usuario' => $usuario)));
+        }
+    }
+
     /*
       public function alterarUsuario() {
       $usuario = new Usuario();

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Empresas{% endblock %}
+
+{% block body %}
+
+<div>
+
+    <img alt="Título da imagem ..." src="data:{{ tipos }};base64, {{ imagem }}" style="width: 20%; height: 20%;"/>
+    <img alt="Título da imagem ..." src="data:{{ tipos2 }};base64, {{ imagem2 }}" style="width: 20%; height: 20%;"/>
+    <img alt="{{ nome }}" src="data:{{ tipos3 }};base64, {{ imagem3 }}" style="width: 20%; height: 20%;"/>
+
+</div>
+
+{% endblock %}

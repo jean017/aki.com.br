@@ -82,10 +82,25 @@ class ModeloUsuario {
             $p_sql = Conexao::getInstance()->prepare($sql);
             $p_sql->execute();
 
-            return $p_sql->fetchAll(PDO::FETCH_CLASS, "Aki\Entity\Usuario");
+            return $p_sql->fetchAll(PDO::FETCH_OBJ);
         } catch (Exception $ex) {
 
-            print_r('Erro na Listagem de Categoria!\n' . $ex);
+            print_r('Erro na Listagem de Usuario!\n' . $ex);
+        }
+    }
+    
+      public function listarBDUsuario($usuario) {
+        try {
+            $sql = "SELECT * FROM usuario WHERE idusuario = :idusuario";
+
+            $p_sql = Conexao::getInstance()->prepare($sql);
+             $p_sql->bindValue(':idusuario', $usuario);
+            $p_sql->execute();
+
+            return $p_sql->fetchAll(PDO::FETCH_OBJ);
+        } catch (Exception $ex) {
+
+            print_r('Erro na Listagem de Usuario por ID!\n' . $ex);
         }
     }
 

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Usuário{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
+</div>
+
+<div class="container">
+
+    <div class="row">
+        
+        {% for listaUsuario in usuario %}
+
+        <h1 class="form-signin text-center"><strong>Dados da conta de {{ listaUsuario.nome }}</strong></h1>
+        </br>
+        </br>
+
+        <div class="col-md-12">
+                 <div class="lead">
+                <h2><strong>Usuário: </strong>{{ listaUsuario.usuario }}</h2>
+                </br>
+                <h3><strong>Senha: </strong> ********** </h3>
+                </br>
+                <h3><strong>Email: </strong>{{ listaUsuario.email }}</h3>
+                </br>
+            </div>
+             <form class="form-signin" method="post" action="/editarusuario">
+
+                    <button class="btn btn-warning btn-lg" type="submit" >Editar Dados</button>
+
+                    </br>
+                </form>
+            <!--            <p><a class="btn btn-success btn-lg " href="/empresacompleta" role="button">Visualizar Dados Completos</a></p>-->
+            
+            </br>
+            </br>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+<div class="container">
+    <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
+</div>
+
+{% endblock %}

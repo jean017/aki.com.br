@@ -232,12 +232,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "ea2c2b1b993a8369cd2e0d0d71d9a5d9e3bf1413"
+                "reference": "5b8196aa9467e881609f90d173211a98d5f46186"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/ea2c2b1b993a8369cd2e0d0d71d9a5d9e3bf1413",
-                "reference": "ea2c2b1b993a8369cd2e0d0d71d9a5d9e3bf1413",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/5b8196aa9467e881609f90d173211a98d5f46186",
+                "reference": "5b8196aa9467e881609f90d173211a98d5f46186",
                 "shasum": ""
             },
             "require": {
@@ -302,7 +302,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-06-01T22:17:54+00:00"
+            "time": "2017-06-12T18:12:26+00:00"
         },
         {
             "name": "twig/twig",
