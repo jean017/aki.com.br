@@ -147,12 +147,10 @@ class ControleEmpresa {
             return $this->response->setContent($this->twig->render('ViewEmpresaUsuario.html', array('usuario' => $this->sessao->get('nome'), 'empresas' => $empresas,)));
         }
     }
-    
-     public function EditarEmpresa() {
-         
-         $idempresa = $this->request->get('editarempresa');
-         
-         echo $idempresa;
+
+    public function EditarEmpresa() {
+
+        $idempresa = $this->request->get('editarempresa');
 
         if ($_SESSION == null) {
 
@@ -161,9 +159,65 @@ class ControleEmpresa {
         } else {
 
             $modelo = new ModeloEmpresa();
-            $empresa = $modelo->listarBDEmpresaID($idempresaempresa);
+            $modeloCategoria = new ModeloCategoria();
+            $empresa = $modelo->listarBDEmpresaID($idempresa);
+            $categorias = $modeloCategoria->listarCategoriasBD();
 
-            return $this->response->setContent($this->twig->render('EditarUsuario.html', array('usuario' => $usuario)));
+            return $this->response->setContent($this->twig->render('EditarEmpresa.html', array('empresa' => $empresa, 'opcoesCategorias' => $categorias)));
+        }
+    }
+
+    public function alterarEmpresa() {
+
+        if ($_SESSION == null) {
+
+            $destino = "/login";
+            $this->redireciona($destino);
+        } else {
+
+            $empresa = new Empresa();
+
+            $empresa->setIdEmpresa($this->request->get('id'));
+            $empresa->setRazaoSocial($this->request->get('razao'));
+            $empresa->setFantasia($this->request->get('fantasia'));
+            $empresa->setCnpj($this->request->get('cnpj'));
+            $empresa->setCep($this->request->get('cep'));
+            $empresa->setCategoria($this->request->get('categoria'));
+            $empresa->setLagradouro($this->request->get('lagradouro'));
+            $empresa->setNumero($this->request->get('numero'));
+            $empresa->setBairro($this->request->get('bairro'));
+            $empresa->setCidade($this->request->get('cidade'));
+            $empresa->setUf($this->request->get('uf'));
+            $empresa->setTelefone($this->request->get('telefone'));
+            $empresa->setEmail($this->request->get('email'));
+            $empresa->setInfoAdd($this->request->get('add'));
+
+            $imagens = array();
+
+            $imagens[0] = $this->request->files->get('imagem');
+            $imagens[1] = $this->request->files->get('imagem2');
+            $imagens[2] = $this->request->files->get('imagem3');
+
+            $modeloEmpresa = new ModeloEmpresa();
+            $modeloEmpresa->alterarBD($empresa);
+
+            //consertar update de imagens
+            
+            $idImagem = $modeloEmpresa->listarBDIdImagens($this->request->get('id'));
+
+            if ($imagens[0] != NULL) {
+                $modeloEmpresa->alterarBDImagem($this->request->get('id'), $this->request->get('imagem'), $idImagem[0]['idimagem']);
+            }
+
+            if ($imagens[1] != NULL) {
+                $modeloEmpresa->alterarBDImagem($this->request->get('id'), $this->request->get('imagem2'), $idImagem[1]['idimagem']);
+            }
+
+            if ($imagens[2] != NULL) {
+                $modeloEmpresa->alterarBDImagem($this->request->get('id'), $this->request->get('imagem3'), $idImagem[2]['idimagem']);
+            }
+
+            echo "<script>window.location='/minhasempresas';alert('Dados de Alterados com Sucesso!');</script>";
         }
     }
 

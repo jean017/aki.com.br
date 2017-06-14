@@ -5,7 +5,7 @@ namespace Aki\Entity;
 class Categoria {
     
     private $idCategoria;
-    private $descricao;
+    private $categoria;
     
     function __construct() {
         
@@ -15,16 +15,16 @@ class Categoria {
         return $this->idCategoria;
     }
 
-    function getDescricao() {
-        return $this->descricao;
+    function getCategoria() {
+        return $this->categoria;
     }
 
     function setIdCategoria($idCategoria) {
         $this->idCategoria = $idCategoria;
     }
 
-    function setDescricao($descricao) {
-        $this->descricao = $descricao;
+    function setCategoria($categoria) {
+        $this->categoria = $categoria;
     }
 
 }

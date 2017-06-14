@@ -16,11 +16,11 @@ class ModeloCategoria {
              
         try {
             
-            $sql = "INSERT INTO categoria (descricao) VALUES (:descricao)";
+            $sql = "INSERT INTO categoria (categoria) VALUES (:categoria)";
             
             $p_sql = Conexao::getInstance()->prepare($sql);
             
-            $p_sql->bindValue(':descricao', $categoria->getDescricao());
+            $p_sql->bindValue(':categoria', $categoria->getDescricao());
             
             $p_sql->execute();
             
@@ -35,11 +35,11 @@ class ModeloCategoria {
     public function alterarBD(Categoria $categoria){
         
         try {
-            $sql = "UPDATE categoria SET descricao = :descricao WHERE idcategoria = :idcategoria";
+            $sql = "UPDATE categoria SET categoria = :categoria WHERE idcategoria = :idcategoria";
                    
             $p_sql = Conexao::getInstance()->prepare($sql);
             
-            $p_sql->bindValue(':descricao', $categoria->getDescricao());
+            $p_sql->bindValue(':categoria', $categoria->getCategoria());
             $p_sql->bindValue(':idcategoria', $categoria->getIdCategoria());
             
             $p_sql->execute();
@@ -74,7 +74,7 @@ class ModeloCategoria {
     
       public function listarCategoriasBD() {
         try {
-            $sql = "SELECT * FROM categoria ORDER BY descricao ASC";
+            $sql = "SELECT * FROM categoria ORDER BY categoria ASC";
 
             $p_sql = Conexao::getInstance()->prepare($sql);
             $p_sql->execute();
@@ -89,7 +89,7 @@ class ModeloCategoria {
        public function retornaIdBD ($categoria){
 
         try {
-            $sql = "SELECT idcategoria FROM categoria WHERE descricao = :categoria";
+            $sql = "SELECT idcategoria FROM categoria WHERE categoria = :categoria";
             
             $p_sql = Conexao::getInstance()->prepare($sql);
             
