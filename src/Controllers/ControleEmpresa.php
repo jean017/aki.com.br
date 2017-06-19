@@ -201,20 +201,31 @@ class ControleEmpresa {
             $modeloEmpresa = new ModeloEmpresa();
             $modeloEmpresa->alterarBD($empresa);
 
-            //consertar update de imagens
-            
             $idImagem = $modeloEmpresa->listarBDIdImagens($this->request->get('id'));
 
+            $qtdImagnes = count($idImagem);
+
+            print_r($qtdImagnes);
+
+
             if ($imagens[0] != NULL) {
-                $modeloEmpresa->alterarBDImagem($this->request->get('id'), $this->request->get('imagem'), $idImagem[0]['idimagem']);
+                $modeloEmpresa->alterarBDImagem($this->request->get('id'), $idImagem[0]['idimagem'], $imagens[0]);
             }
 
-            if ($imagens[1] != NULL) {
-                $modeloEmpresa->alterarBDImagem($this->request->get('id'), $this->request->get('imagem2'), $idImagem[1]['idimagem']);
+            if ($imagens[1] != NULL && $qtdImagnes >= 2) {
+                $modeloEmpresa->alterarBDImagem($this->request->get('id'), $idImagem[1]['idimagem'], $imagens[1]);
+            } else {
+                if ($imagens[1] != NULL) {
+                    $modeloEmpresa->inserirBDImagem($this->request->get('id'), $imagens[1]);
+                }
             }
 
-            if ($imagens[2] != NULL) {
-                $modeloEmpresa->alterarBDImagem($this->request->get('id'), $this->request->get('imagem3'), $idImagem[2]['idimagem']);
+            if ($imagens[2] != NULL && $qtdImagnes == 3) {
+                $modeloEmpresa->alterarBDImagem($this->request->get('id'), $idImagem[2]['idimagem'], $imagens[2]);
+            } else {
+                if ($imagens[2] != NULL) {
+                    $modeloEmpresa->inserirBDImagem($this->request->get('id'), $imagens[2]);
+                }
             }
 
             echo "<script>window.location='/minhasempresas';alert('Dados de Alterados com Sucesso!');</script>";

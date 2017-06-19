@@ -75,7 +75,7 @@ class ModeloEmpresa {
         try {
 
             $sql = "UPDATE imagem SET imagem = :imagem, fkempresa = :fkempresa, nome = :nome, tipo = :tipo "
-                    . "WHERE `idimagem` = :idimagem";
+                    . "WHERE idimagem = :idimagem";
 
             $p_sql1 = Conexao::getInstance()->prepare($sql);
             $p_sql1->bindValue(':imagem', file_get_contents($imagem->getPathname()));
@@ -252,7 +252,7 @@ class ModeloEmpresa {
         public function listarBDIdImagens($idempresa) {
 
         try {
-            $sql = "SELECT * FROM imagem WHERE fkempresa = :idempresa";
+            $sql = "SELECT idimagem FROM imagem WHERE fkempresa = :idempresa";
 
             $p_sql = Conexao::getInstance()->prepare($sql);
             $p_sql->bindValue(':idempresa', $idempresa);

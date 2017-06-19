@@ -120,12 +120,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "a823a2f76dab2326ff7a5b30ab643a180d93b3ca"
+                "reference": "19fd3e94e63a7f5dd016647d8a66aaa14bc7681c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/a823a2f76dab2326ff7a5b30ab643a180d93b3ca",
-                "reference": "a823a2f76dab2326ff7a5b30ab643a180d93b3ca",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/19fd3e94e63a7f5dd016647d8a66aaa14bc7681c",
+                "reference": "19fd3e94e63a7f5dd016647d8a66aaa14bc7681c",
                 "shasum": ""
             },
             "require": {
@@ -165,7 +165,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-06T05:08:36+00:00"
+            "time": "2017-06-14T19:31:53+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
