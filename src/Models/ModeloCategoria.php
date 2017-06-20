@@ -20,7 +20,7 @@ class ModeloCategoria {
             
             $p_sql = Conexao::getInstance()->prepare($sql);
             
-            $p_sql->bindValue(':categoria', $categoria->getDescricao());
+            $p_sql->bindValue(':categoria', $categoria->getCategoria());
             
             $p_sql->execute();
             

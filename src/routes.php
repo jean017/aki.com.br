@@ -68,7 +68,7 @@ $rotas->add('categorias', new Route('/categorias', array('_controller' =>
     '_method' => 'listarCategorias')));
 
 $rotas->add('salvarcategoria', new Route('/salvarcategoria', array('_controller' =>
-    'Aki\Controllers\Cadastro',
+    'Aki\Controllers\ControleCategoria',
     '_method' => 'salvarCategoria')));
 
 $rotas->add('cadastrocategoria', new Route('/cadastrocategoria', array('_controller' =>

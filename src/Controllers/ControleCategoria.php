@@ -30,7 +30,7 @@ class ControleCategoria {
 
     public function salvarCategoria() {
         $categoria = new Categoria();
-        $categoria->setDescricao($this->request->get('categoria'));
+        $categoria->setCategoria($this->request->get('categoria'));
         $modelo = new ModeloCategoria();
         $modelo->inserirBD($categoria);
 
