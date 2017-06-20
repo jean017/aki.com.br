@@ -200,7 +200,7 @@ class ModeloEmpresa {
             $sql = "SELECT * FROM empresa, categoria, classificacao WHERE "
                     . "classificacao.empresa = empresa.idempresa "
                     . "AND empresa.fkcategoria = categoria.idcategoria "
-                    . "AND empresa.razao_social = :empresa";
+                    . "AND empresa.idempresa = :empresa";
 
             $p_sql = Conexao::getInstance()->prepare($sql);
             $p_sql->bindValue(':empresa', $empresa);
@@ -219,7 +219,7 @@ class ModeloEmpresa {
             $sql = "SELECT * FROM empresa, categoria, classificacao WHERE "
                     . "classificacao.empresa = empresa.idempresa "
                     . "AND empresa.fkcategoria = categoria.idcategoria "
-                    . "AND empresa.fkusuario = :usuario";
+                    . "AND empresa.fkusuario = :usuario ORDER BY empresa.razao_social ASC";
 
             $p_sql = Conexao::getInstance()->prepare($sql);
             $p_sql->bindValue(':usuario', $usuario);
@@ -236,7 +236,7 @@ class ModeloEmpresa {
 
         try {
             $sql = "SELECT imagem.* FROM imagem, empresa WHERE "
-                    . "imagem.fkempresa = empresa.idempresa AND empresa.razao_social = :empresa";
+                    . "imagem.fkempresa = empresa.idempresa AND empresa.idempresa = :empresa";
 
             $p_sql = Conexao::getInstance()->prepare($sql);
             $p_sql->bindValue(':empresa', $empresa);
@@ -264,5 +264,4 @@ class ModeloEmpresa {
             print_r('Erro na Listagem de Empresa Completa!\n' . $ex);
         }
     }
-
 }

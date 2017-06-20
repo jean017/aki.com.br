@@ -12,11 +12,11 @@
 
     <div class="row">
 
-        <h1 class="form-signin text-center"><strong>{{ empresa }}</strong></h1>
-        </br>
-        </br>
-
         {% for listaEmpresas in empresas %}
+
+        <h1 class="form-signin text-center"><strong>{{ listaEmpresas.razao_social }}</strong></h1>
+        </br>
+        </br>
 
         <div class="col-md-12">
             <div class="lead">
@@ -61,10 +61,10 @@
 
                         <div class="item active">
                             <img alt="{{ nome }}" src="data:{{ tipo }};base64, {{ imagem }}" style="max-width:1500px; max-height:600px; width: 100%; height: auto;"/>
-                            
+
                             <div class="carousel-caption">
                                 <h1>
-                                    {{ empresa }}
+                                    {{ listaEmpresas.razao_social }}
                                 </h1>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                             <img alt="{{ nome2 }}" src="data:{{ tipo2 }};base64, {{ imagem2 }}" style="max-width:1500px; max-height:600px; width: 100%; height: auto;"/>
                             <div class="carousel-caption">
                                 <h1>
-                                    {{ empresa }}
+                                    {{ listaEmpresas.razao_social }}
                                 </h1>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                             <img alt="{{ nome3 }}" src="data:{{ tipo3 }};base64, {{ imagem3 }}" style="max-width:1500px; max-height:600px; width: 100%; height: auto;"/>
                             <div class="carousel-caption">
                                 <h1>
-                                    {{ empresa }}
+                                    {{ listaEmpresas.razao_social }}
                                 </h1>
                             </div>
                         </div>
@@ -101,18 +101,16 @@
                 </br>
             </div>
 
-            <div class="col-md-12">
-                <div class="col-md-4">
+            <button class="btn btn-primary btn-lg " type="button" >Abrir Rota no Maps</button>
+            <button class="btn btn-danger btn-lg " type="button" onClick="history.go(-1)">Voltar</button>
 
-                    <p><a class="btn btn-success btn-lg " href="/empresacompleta" role="button">Visualizar Dados Completos</a></p>
 
-                </div>
-            </div>
         </div>
-
-        {% endfor %}
-
     </div>
+
+    {% endfor %}
+
+</div>
 </div>
 
 <div class="container">

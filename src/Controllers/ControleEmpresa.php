@@ -111,13 +111,13 @@ class ControleEmpresa {
             if (!empty($imagens[0])) {
                 $imagem1 = $imagens[0];
             } else {
-                $iamgem1 = null;
+                $imagem1 = null;
             }
 
             if (!empty($imagens[1])) {
                 $imagem2 = $imagens[1];
             } else {
-                $iamgem2 = null;
+                $imagem2 = null;
             }
 
             if (!empty($imagens[2])) {
@@ -126,7 +126,7 @@ class ControleEmpresa {
                 $imagem3 = NULL;
             }
 
-            return $this->response->setContent($this->twig->render('ViewEmpresaCompleta.html', array('empresa' => $empresa, 'empresas' => $empresas,
+            return $this->response->setContent($this->twig->render('ViewEmpresaCompleta.html', array('empresas' => $empresas,
                                 'nome' => $imagem1['nome'], 'tipo' => $imagem1['tipo'], 'imagem' => base64_encode($imagem1['imagem']),
                                 'nome2' => $imagem2['nome'], 'tipo2' => $imagem2['tipo'], 'imagem2' => base64_encode($imagem2['imagem']),
                                 'nome3' => $imagem3['nome'], 'tipo3' => $imagem3['tipo'], 'imagem3' => base64_encode($imagem3['imagem']))));
@@ -144,7 +144,7 @@ class ControleEmpresa {
             $modelo = new ModeloEmpresa();
             $empresas = $modelo->listarBDCompletaUsuario($this->sessao->get('id'));
 
-            return $this->response->setContent($this->twig->render('ViewEmpresaUsuario.html', array('usuario' => $this->sessao->get('nome'), 'empresas' => $empresas,)));
+            return $this->response->setContent($this->twig->render('ViewEmpresaUsuario.html', array('usuario' => $this->sessao->get('nome'), 'empresas' => $empresas)));
         }
     }
 
