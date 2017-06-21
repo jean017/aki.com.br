@@ -9,6 +9,7 @@ use Aki\Util\Sessao;
 use PDO;
 use Aki\Models\ModeloEmpresa;
 use Aki\Models\ModeloCategoria;
+use Aki\Models\ModeloClassificacao;
 use Aki\Entity\Empresa;
 
 class ControleEmpresa {
@@ -105,6 +106,8 @@ class ControleEmpresa {
             $empresa = $this->request->get('empresa');
 
             $modelo = new ModeloEmpresa();
+            $modeloClassificacao = new ModeloClassificacao();
+            $classificacao = $modeloClassificacao->listarMediaBD($empresa);
             $empresas = $modelo->listarBDCompleta($empresa);
             $imagens = $modelo->listarBDImagens($empresa);
 
@@ -127,12 +130,13 @@ class ControleEmpresa {
             }
 
             return $this->response->setContent($this->twig->render('ViewEmpresaCompleta.html', array('empresas' => $empresas,
+                                'nota' => number_format($classificacao[0]['AVG(classificacao)'], 2),
                                 'nome' => $imagem1['nome'], 'tipo' => $imagem1['tipo'], 'imagem' => base64_encode($imagem1['imagem']),
                                 'nome2' => $imagem2['nome'], 'tipo2' => $imagem2['tipo'], 'imagem2' => base64_encode($imagem2['imagem']),
                                 'nome3' => $imagem3['nome'], 'tipo3' => $imagem3['tipo'], 'imagem3' => base64_encode($imagem3['imagem']))));
         }
     }
-    
+
     public function ViewEmpresasCompletaUsuario() {
 
         if ($_SESSION == null) {
@@ -144,6 +148,8 @@ class ControleEmpresa {
             $empresa = $this->request->get('empresa');
 
             $modelo = new ModeloEmpresa();
+            $modeloClassificacao = new ModeloClassificacao();
+            $classificacao = $modeloClassificacao->listarMediaBD($empresa);
             $empresas = $modelo->listarBDCompleta($empresa);
             $imagens = $modelo->listarBDImagens($empresa);
 
@@ -166,6 +172,7 @@ class ControleEmpresa {
             }
 
             return $this->response->setContent($this->twig->render('ViewEmpresaCompletaUsuario.html', array('empresas' => $empresas,
+                                'nota' => number_format($classificacao[0]['AVG(classificacao)'], 2),
                                 'nome' => $imagem1['nome'], 'tipo' => $imagem1['tipo'], 'imagem' => base64_encode($imagem1['imagem']),
                                 'nome2' => $imagem2['nome'], 'tipo2' => $imagem2['tipo'], 'imagem2' => base64_encode($imagem2['imagem']),
                                 'nome3' => $imagem3['nome'], 'tipo3' => $imagem3['tipo'], 'imagem3' => base64_encode($imagem3['imagem']))));
@@ -268,6 +275,31 @@ class ControleEmpresa {
             }
 
             echo "<script>window.location='/minhasempresas';alert('Dados de Alterados com Sucesso!');</script>";
+        }
+    }
+
+    public function ExcluirEmpresa() {
+
+        $idempresa = $this->request->get('excluirempresa');
+
+        if ($_SESSION == null) {
+
+            $destino = "/login";
+            $this->redireciona($destino);
+        } else {
+
+            $modelo = new ModeloEmpresa();
+            $modeloClassificacao = new ModeloClassificacao();
+            $empresa = $modeloClassificacao->excluirBD($idempresa);
+            $empresa = $modelo->excluirImagemBD($idempresa);
+            $empresa = $modelo->excluirBD($idempresa);
+
+
+            $empresas = $modelo->listarBDCompletaUsuario($this->sessao->get('id'));
+            
+            echo "<script>alert('Empresa Excluida com Sucesso!');</script>";
+
+            return $this->response->setContent($this->twig->render('ViewEmpresaUsuario.html', array('usuario' => $this->sessao->get('nome'), 'empresas' => $empresas)));
         }
     }
 

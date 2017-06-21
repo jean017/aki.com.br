@@ -19,22 +19,30 @@
         </br>
 
         <div class="col-md-12">
-            <div class="lead">
-                <h1><strong>{{ listaEmpresas.fantasia }}</strong></h1>
-                </br>
-                <h2><strong>{{ listaEmpresas.telefone }}</strong></h2>
-                </br>
-                <p><strong> CNPJ:</strong> {{ listaEmpresas.cnpj }}</p>
-                </br>
-                <p><strong> Endereço:</strong> {{ listaEmpresas.lagradouro }}, {{ listaEmpresas.numero }} 
-                    <strong>Bairro:</strong> {{ listaEmpresas.bairro }}</p>
-                </br>
-                <p>{{ listaEmpresas.cep }}, {{ listaEmpresas.cidade }}/{{ listaEmpresas.uf }}</p>
-                </br>
-                <p><strong>Email:</strong> {{ listaEmpresas.email }}</p> 
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="lead">
+                        <h1><strong>{{ listaEmpresas.fantasia }}</strong></h1>
+                        </br>
+                        <h2><strong>{{ listaEmpresas.telefone }}</strong></h2>
+                        </br>
+                        <p><strong> CNPJ:</strong> {{ listaEmpresas.cnpj }}</p>
+                        </br>
+                        <p><strong> Endereço:</strong> {{ listaEmpresas.lagradouro }}, {{ listaEmpresas.numero }} 
+                            <strong>Bairro:</strong> {{ listaEmpresas.bairro }}</p>
+                        </br>
+                        <p>{{ listaEmpresas.cep }}, {{ listaEmpresas.cidade }}/{{ listaEmpresas.uf }}</p>
+                        </br>
+                        <p><strong>Email:</strong> {{ listaEmpresas.email }}</p> 
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h1><strong>Classificação</strong></h1>
+                    </br>
+                    <h2><strong>{{ nota }} Pontos</strong></h2>
+                    </br>
+                </div>
             </div>
-
-
 
             <div class="col-md-12">
                 <div class="carousel slide" id="carousel-745777">

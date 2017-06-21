@@ -104,8 +104,8 @@ $rotas->add('alterarempresa', new Route('/alterarempresa', array('_controller' =
     '_method' => 'alterarEmpresa')));
 
 $rotas->add('excluirempresa', new Route('/excluirempresa', array('_controller' =>
-    'Aki\Controllers\ControleUsuario',
-    '_method' => 'EditarUsuario')));
+    'Aki\Controllers\ControleEmpresa',
+    '_method' => 'ExcluirEmpresa')));
 
 $rotas->add('classificar', new Route('/classificar', array('_controller' =>
     'Aki\Controllers\ControleClassificacao',

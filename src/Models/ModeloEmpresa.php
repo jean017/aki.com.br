@@ -128,13 +128,13 @@ class ModeloEmpresa {
         }
     }
 
-    public function excluirBD(Empresa $empresa) {
+    public function excluirBD($empresa) {
 
         try {
             $sql = "DELETE FROM empresa WHERE idempresa = :idempresa";
 
             $p_sql = Conexao::getInstance()->prepare($sql);
-            $p_sql->bindValue(':idempresa', $empresa->getIdEmpresa());
+            $p_sql->bindValue(':idempresa', $empresa);
 
             $p_sql->execute();
 
@@ -142,6 +142,23 @@ class ModeloEmpresa {
         } catch (Exception $ex) {
 
             print_r('Erro na Exclusão da Empresa!\n Erro: ' . $ex);
+        }
+    }
+    
+        public function excluirImagemBD($empresa) {
+
+        try {
+            $sql = "DELETE FROM imagem WHERE fkempresa = :empresa";
+
+            $p_sql = Conexao::getInstance()->prepare($sql);
+            $p_sql->bindValue(':empresa', $empresa);
+
+            $p_sql->execute();
+
+            return Conexao::getInstance()->lastInsertId();
+        } catch (Exception $ex) {
+
+            print_r('Erro na Exclusão da Imagem Empresa!\n Erro: ' . $ex);
         }
     }
 
@@ -161,9 +178,8 @@ class ModeloEmpresa {
     
     public function listarBDEmpresaID($empresa) {
         try {
-            $sql = "SELECT * FROM empresa, categoria, classificacao WHERE "
-                    . "classificacao.empresa = empresa.idempresa "
-                    . "AND categoria.idcategoria = empresa.fkcategoria "
+            $sql = "SELECT * FROM empresa, categoria WHERE "
+                    . "categoria.idcategoria = empresa.fkcategoria "
                     . "AND empresa.idempresa = :idempresa";
 
             $p_sql = Conexao::getInstance()->prepare($sql);
@@ -197,9 +213,8 @@ class ModeloEmpresa {
     public function listarBDCompleta($empresa) {
 
         try {
-            $sql = "SELECT * FROM empresa, categoria, classificacao WHERE "
-                    . "classificacao.empresa = empresa.idempresa "
-                    . "AND empresa.fkcategoria = categoria.idcategoria "
+            $sql = "SELECT * FROM empresa, categoria WHERE "
+                    . "empresa.fkcategoria = categoria.idcategoria "
                     . "AND empresa.idempresa = :empresa";
 
             $p_sql = Conexao::getInstance()->prepare($sql);

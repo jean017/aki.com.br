@@ -33,54 +33,32 @@ class ModeloClassificacao {
         }
     }
     
-    public function alterarBD(Classificacao $classificacao){
-        
+            public function excluirBD($empresa) {
+
         try {
-            $sql = "UPDATE classificacao SET descricao = :descricao WHERE idclassificacao = :idclassificacao";
-                   
+            $sql = "DELETE FROM classificacao WHERE empresa = :empresa";
+
             $p_sql = Conexao::getInstance()->prepare($sql);
-            
-            $p_sql->bindValue(':descricao', $classificacao->getDescricao());
-            $p_sql->bindValue(':idclassificacao', $classificacao->getIdClassificacao());
-            
+            $p_sql->bindValue(':empresa', $empresa);
+
             $p_sql->execute();
-            
+
             return Conexao::getInstance()->lastInsertId();
-            
         } catch (Exception $ex) {
-            
-            print_r('Erro na Alteração da Classificação!\n Erro: '.$ex);
+
+            print_r('Erro na Exclusão da Classificacao Empresa!\n Erro: ' . $ex);
         }
     }
     
-    public function excluirBD(Classificacao $classificacao){
-        
-        try{
-            $sql = "DELETE FROM classificacao WHERE idclassificacao = :idclassificacao";
-            
-            $p_sql = Conexao::getInstance()->prepare($sql);
-            
-            $p_sql->bindValue(':idclassificacao', $classificacao->getIdClassificacao());
-            
-            $p_sql->execute();
-            
-            return Conexao::getInstance()->lastInsertId();
-            
-        }  catch (Exception $ex){
-            
-            print_r('Erro na Exclusão da Classificação!\n Erro: '.$ex);
-            
-        }
-    }
-    
-    public function listarBD (){
+    public function listarMediaBD ($empresa){
         try {
-            $sql = "SELECT * FROM classificacao";
+            $sql = "SELECT AVG(classificacao) FROM classificacao WHERE empresa = :empresa";
             
             $p_sql = Conexao::getInstance()->prepare($sql);
+            $p_sql->bindValue(':empresa', $empresa);
             $p_sql->execute();
             
-            return $p_sql->fetchAll(PDO::FETCH_CLASS, "Aki\Entity\Classificacao");
+            return $p_sql->fetchAll(PDO::FETCH_ASSOC);
             
         } catch (Exception $ex) {
             
