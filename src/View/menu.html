@@ -28,14 +28,14 @@
                 <li><a href="/novolugar">Novos Lugares</a></li>
                 <li><a href="/quemsou">Quem Sou?</a></li>
             </ul>
-            <form class="navbar-form navbar-header">
+            <form class="navbar-form navbar-header" method="post" action="\busca">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="O que você procura?">
+                    <input type="text" class="form-control" name="procura" placeholder="O que você procura?">
                 </div>
                 <button type="submit" class="btn btn-default">Buscar</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-]
+                
                 {% if VerificaSessao() %}
                 
                 <li><a href="/minhaconta"><span class="glyphicon glyphicon-user"></span> {{ VerificaSessao() }} </a></li>

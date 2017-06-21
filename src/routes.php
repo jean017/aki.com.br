@@ -15,6 +15,10 @@ $rotas->add('quemsou', new Route('/quemsou', array(
     '_controller' => 'Aki\Controllers\ControleIndex', 
     '_method' => 'telaQuemSou')));
 
+$rotas->add('busca', new Route('/busca', array(
+    '_controller' => 'Aki\Controllers\ControleIndex', 
+    '_method' => 'busca')));
+
 $rotas->add('cadastrousuario', new Route('/cadastrousuario', array('_controller' =>
     'Aki\Controllers\ControleUsuario',
     '_method' => 'cadastroUsuario')));
