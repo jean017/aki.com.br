@@ -16,11 +16,12 @@ class ModeloClassificacao {
              
         try {
             
-            $sql = "INSERT INTO classificacao (descricao) VALUES (:descricao)";
+            $sql = "INSERT INTO classificacao (classificacao, empresa) VALUES(:classificacao, :empresa)";
             
             $p_sql = Conexao::getInstance()->prepare($sql);
             
-            $p_sql->bindValue(':descricao', $classificacao->getDescricao());
+            $p_sql->bindValue(':classificacao', $classificacao->getClassificacao());
+            $p_sql->bindValue(':empresa', $classificacao->getEmpresa());
             
             $p_sql->execute();
             

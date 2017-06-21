@@ -87,6 +87,10 @@ $rotas->add('empresasCompletas', new Route('/empresacompleta', array('_controlle
     'Aki\Controllers\ControleEmpresa',
     '_method' => 'ViewEmpresasCompletas')));
 
+$rotas->add('empresasCompletaUsuario', new Route('/empresacompletausuario', array('_controller' =>
+    'Aki\Controllers\ControleEmpresa',
+    '_method' => 'ViewEmpresasCompletaUsuario')));
+
 $rotas->add('minhasEmpresas', new Route('/minhasempresas', array('_controller' =>
     'Aki\Controllers\ControleEmpresa',
     '_method' => 'ViewMinhasEmpresas')));
@@ -102,5 +106,9 @@ $rotas->add('alterarempresa', new Route('/alterarempresa', array('_controller' =
 $rotas->add('excluirempresa', new Route('/excluirempresa', array('_controller' =>
     'Aki\Controllers\ControleUsuario',
     '_method' => 'EditarUsuario')));
+
+$rotas->add('classificar', new Route('/classificar', array('_controller' =>
+    'Aki\Controllers\ControleClassificacao',
+    '_method' => 'salvarClassificacao')));
 
 return $rotas;

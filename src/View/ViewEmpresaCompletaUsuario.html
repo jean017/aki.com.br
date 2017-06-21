@@ -19,50 +19,19 @@
         </br>
 
         <div class="col-md-12">
-            <div class="col-md-12">
-                <div class="col-md-6">
-                    <div class="lead">
-                        <h1><strong>{{ listaEmpresas.fantasia }}</strong></h1>
-                        </br>
-                        <h2><strong>{{ listaEmpresas.telefone }}</strong></h2>
-                        </br>
-                        <p><strong> CNPJ:</strong> {{ listaEmpresas.cnpj }}</p>
-                        </br>
-                        <p><strong> Endereço:</strong> {{ listaEmpresas.lagradouro }}, {{ listaEmpresas.numero }} 
-                            <strong>Bairro:</strong> {{ listaEmpresas.bairro }}</p>
-                        </br>
-                        <p>{{ listaEmpresas.cep }}, {{ listaEmpresas.cidade }}/{{ listaEmpresas.uf }}</p>
-                        </br>
-                        <p><strong>Email:</strong> {{ listaEmpresas.email }}</p> 
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h1><strong>Classificação</strong></h1>
-                    </br>
-                    <h2><strong>{{ listaEmpresas.telefone }}</strong></h2>
-                    </br>
-
-                    <form class="form-signin" method="post" action="/classificar">
-                        <div class="form-group">
-                            <h2><strong>Dê sua Nota! ;-)</strong></h2>
-                            <select class="form-control" name="nota">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>                                
-                            </select>
-                        </div>
-                        </br>
-                        <button class="btn btn-success btn-lg" type="submit" name="empresa" value="{{ listaEmpresas.idempresa }}">Avaliar</button>
-                    </form>
-
-                </div>
+            <div class="lead">
+                <h1><strong>{{ listaEmpresas.fantasia }}</strong></h1>
+                </br>
+                <h2><strong>{{ listaEmpresas.telefone }}</strong></h2>
+                </br>
+                <p><strong> CNPJ:</strong> {{ listaEmpresas.cnpj }}</p>
+                </br>
+                <p><strong> Endereço:</strong> {{ listaEmpresas.lagradouro }}, {{ listaEmpresas.numero }} 
+                    <strong>Bairro:</strong> {{ listaEmpresas.bairro }}</p>
+                </br>
+                <p>{{ listaEmpresas.cep }}, {{ listaEmpresas.cidade }}/{{ listaEmpresas.uf }}</p>
+                </br>
+                <p><strong>Email:</strong> {{ listaEmpresas.email }}</p> 
             </div>
 
 
@@ -133,7 +102,7 @@
             </div>
 
             <button class="btn btn-primary btn-lg " type="button" >Abrir Rota no Maps</button>
-            <button class="btn btn-danger btn-lg " type="button" onclick="parent.location = '/'">Voltar</button>
+            <button class="btn btn-danger btn-lg " type="button" onClick="history.go(-1)">Voltar</button>
 
 
         </div>

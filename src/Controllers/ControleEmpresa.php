@@ -132,6 +132,45 @@ class ControleEmpresa {
                                 'nome3' => $imagem3['nome'], 'tipo3' => $imagem3['tipo'], 'imagem3' => base64_encode($imagem3['imagem']))));
         }
     }
+    
+    public function ViewEmpresasCompletaUsuario() {
+
+        if ($_SESSION == null) {
+
+            $destino = "/login";
+            $this->redireciona($destino);
+        } else {
+
+            $empresa = $this->request->get('empresa');
+
+            $modelo = new ModeloEmpresa();
+            $empresas = $modelo->listarBDCompleta($empresa);
+            $imagens = $modelo->listarBDImagens($empresa);
+
+            if (!empty($imagens[0])) {
+                $imagem1 = $imagens[0];
+            } else {
+                $imagem1 = null;
+            }
+
+            if (!empty($imagens[1])) {
+                $imagem2 = $imagens[1];
+            } else {
+                $imagem2 = null;
+            }
+
+            if (!empty($imagens[2])) {
+                $imagem3 = $imagens[2];
+            } else {
+                $imagem3 = NULL;
+            }
+
+            return $this->response->setContent($this->twig->render('ViewEmpresaCompletaUsuario.html', array('empresas' => $empresas,
+                                'nome' => $imagem1['nome'], 'tipo' => $imagem1['tipo'], 'imagem' => base64_encode($imagem1['imagem']),
+                                'nome2' => $imagem2['nome'], 'tipo2' => $imagem2['tipo'], 'imagem2' => base64_encode($imagem2['imagem']),
+                                'nome3' => $imagem3['nome'], 'tipo3' => $imagem3['tipo'], 'imagem3' => base64_encode($imagem3['imagem']))));
+        }
+    }
 
     public function ViewMinhasEmpresas() {
 

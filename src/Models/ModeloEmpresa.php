@@ -216,9 +216,8 @@ class ModeloEmpresa {
         public function listarBDCompletaUsuario($usuario) {
 
         try {
-            $sql = "SELECT * FROM empresa, categoria, classificacao WHERE "
-                    . "classificacao.empresa = empresa.idempresa "
-                    . "AND empresa.fkcategoria = categoria.idcategoria "
+            $sql = "SELECT * FROM empresa, categoria WHERE "
+                    . "empresa.fkcategoria = categoria.idcategoria "
                     . "AND empresa.fkusuario = :usuario ORDER BY empresa.razao_social ASC";
 
             $p_sql = Conexao::getInstance()->prepare($sql);

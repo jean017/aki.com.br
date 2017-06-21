@@ -38,7 +38,7 @@ class ControleIndex {
         $modelo = new ModeloIndex();
         $resultado = $modelo->listarBuscaBD($busca);
 
-       return $this->response->setContent($this->twig->render('Busca.html', array('empresas' => $resultado)));
+       return $this->response->setContent($this->twig->render('Busca.html', array('empresas' => $resultado, 'busca' => $busca)));
     }
 
 }
