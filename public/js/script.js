@@ -65,4 +65,47 @@ $(document).ready(function () {
             limpa_formulário_cep();
         }
     });
+
+    function carregarNoMapa(endereco) {
+        geocoder.geocode({'address': endereco + ', Brasil', 'region': 'BR'}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    var latitude = results[0].geometry.location.lat();
+                    var longitude = results[0].geometry.location.lng();
+
+                    $('#txtEndereco').val(results[0].formatted_address);
+                    $('#txtLatitude').val(latitude);
+                    $('#txtLongitude').val(longitude);
+
+                    var location = new google.maps.LatLng(latitude, longitude);
+                    marker.setPosition(location);
+                    map.setCenter(location);
+                    map.setZoom(16);
+                }
+            }
+        });
+
+        google.maps.event.addListener(marker, 'drag', function () {
+            geocoder.geocode({'latLng': marker.getPosition()}, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (results[0]) {
+                        $('#txtEndereco').val(results[0].formatted_address);
+                        $('#txtLatitude').val(marker.getPosition().lat());
+                        $('#txtLongitude').val(marker.getPosition().lng());
+                    }
+                }
+            });
+        });
+    }
+
+    $("#btnEndereco").click(function () {
+        if ($(this).val() != "")
+            carregarNoMapa($("#btnEndereco").val());
+    })
+
+    $("#btnEndereco").blur(function () {
+        if ($(this).val() != "")
+            carregarNoMapa($(this).val());
+    })
+
 });
