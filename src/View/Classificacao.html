@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Nota de Classificação{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <form class="form-signin" method="post" action="\empresacompleta">
+                <h2 class="form-signin-heading text-center"><strong>Nota Registrada com Sucesso!</strong></h2>
+
+                </br>
+                </br>
+                
+                <input type="hidden" name="empresa" value="{{ empresa }}" >
+                <button class="btn btn-lg btn-danger btn-block" type="submit">Voltar</button>
+
+            </form>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
+    </div>
+
+    {% endblock %}

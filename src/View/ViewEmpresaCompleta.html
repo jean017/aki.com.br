@@ -142,9 +142,15 @@
                         </select>
                     </div>
                     </br>
+
                     <button class="btn btn-success btn-lg" type="submit" name="empresa" value="{{ listaEmpresas.idempresa }}">Avaliar</button>
-                    <button class="btn btn-danger btn-lg " type="button" onclick="parent.location = '/'">Voltar</button>
                 </form>
+
+                </br>
+
+                <form class="form-signin" method="post" action="/empresas">
+                    <button class="btn btn-danger btn-lg " type="submit" name="categoriaBusca" value="{{ listaEmpresas.categoria }}">Voltar</button>
+                </form>    
 
             </div>
         </div>

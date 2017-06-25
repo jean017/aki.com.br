@@ -36,8 +36,7 @@ class ControleClassificacao {
         $modelo = new ModeloClassificacao();
         $modelo->inserirBD($classificacao);
 
-        $destino = "/paineldecontrole";
-        $this->redireciona($destino);
+       return $this->response->setContent($this->twig->render('Classificacao.html', array('empresa' => $this->request->get('empresa'))));
     }
 
     public function redireciona($destino) {

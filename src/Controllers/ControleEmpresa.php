@@ -104,7 +104,7 @@ class ControleEmpresa {
         } else {
 
             $empresa = $this->request->get('empresa');
-
+           
             $modelo = new ModeloEmpresa();
             $modeloClassificacao = new ModeloClassificacao();
             $classificacao = $modeloClassificacao->listarMediaBD($empresa);
