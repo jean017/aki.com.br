@@ -120,12 +120,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "19fd3e94e63a7f5dd016647d8a66aaa14bc7681c"
+                "reference": "7b29ebdb7f886c8a25fecdb7cab425902141cce5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/19fd3e94e63a7f5dd016647d8a66aaa14bc7681c",
-                "reference": "19fd3e94e63a7f5dd016647d8a66aaa14bc7681c",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/7b29ebdb7f886c8a25fecdb7cab425902141cce5",
+                "reference": "7b29ebdb7f886c8a25fecdb7cab425902141cce5",
                 "shasum": ""
             },
             "require": {
@@ -165,7 +165,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-14T19:31:53+00:00"
+            "time": "2017-06-24T12:58:08+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -232,12 +232,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "5b8196aa9467e881609f90d173211a98d5f46186"
+                "reference": "e87f6e9d7d20022938bc1d7ded94ee6ab6f92e05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/5b8196aa9467e881609f90d173211a98d5f46186",
-                "reference": "5b8196aa9467e881609f90d173211a98d5f46186",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/e87f6e9d7d20022938bc1d7ded94ee6ab6f92e05",
+                "reference": "e87f6e9d7d20022938bc1d7ded94ee6ab6f92e05",
                 "shasum": ""
             },
             "require": {
@@ -302,7 +302,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-06-12T18:12:26+00:00"
+            "time": "2017-06-24T12:58:08+00:00"
         },
         {
             "name": "twig/twig",

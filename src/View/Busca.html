@@ -19,7 +19,7 @@
         {% for listaEmpresas in empresas %}
 
         <div class="col-md-12">
-                 <div class="lead">
+            <div class="lead">
                 <h1><strong>{{ listaEmpresas.fantasia }}</strong></h1>
                 </br>
                 <h2>{{ listaEmpresas.razao_social }}</h2>
@@ -32,20 +32,22 @@
                 <p>{{ listaEmpresas.cep }}, {{ listaEmpresas.cidade }}/{{ listaEmpresas.uf }}</p>
                 </br>
             </div>
-            
-             <form class="form-signin" method="post" action="/empresacompleta">
 
-                    <button class="btn btn-success btn-lg" type="submit" name="empresa" value="{{ listaEmpresas.idempresa }}">Visualizar Dados Completos</button>
+            <form class="form-signin" method="post" action="/empresacompleta">
 
-                    </br>
-                </form>
-            <!--            <p><a class="btn btn-success btn-lg " href="/empresacompleta" role="button">Visualizar Dados Completos</a></p>-->
-            
+                <button class="btn btn-success btn-lg" type="submit" name="empresa" value="{{ listaEmpresas.idempresa }}">Visualizar Dados Completos</button>
+
+                </br>
+            </form>
+
             </br>
             </br>
+
         </div>
 
         {% endfor %}
+
+        <p><a class="btn btn-danger btn-lg " href="/" role="button">Voltar</a></p>
 
     </div>
 </div>
