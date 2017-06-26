@@ -27,14 +27,16 @@
                 <h3><strong>Email: </strong>{{ listaUsuario.email }}</h3>
                 </br>
             </div>
-
-            <p><a class="btn btn-warning btn-lg " href="/editarusuario" role="button">Editar Dados</a></p>
-
+            <div class="col-md-6">
+                <a class="btn btn-warning btn-lg " href="/editarusuario" role="button">Editar Dados</a>
+                <a class="btn btn-primary btn-lg " href="/paineldecontrole" role="button">Painel de Controle</a>
+            </div>
         </div>
 
-        {% endfor %}
-
     </div>
+
+    {% endfor %}
+
 </div>
 
 <div class="container">

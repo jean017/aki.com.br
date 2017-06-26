@@ -34,8 +34,7 @@ class ControleCategoria {
         $modelo = new ModeloCategoria();
         $modelo->inserirBD($categoria);
 
-        $destino = "/paineldecontrole";
-        $this->redireciona($destino);
+     echo "<script>window.location='/paineldecontrole';alert('Nova Categoria Salva com Sucesso!');</script>";
     }
 
     public function alterarCategoria() {

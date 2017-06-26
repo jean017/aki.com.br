@@ -80,9 +80,9 @@ class ControleEmpresa {
         if ($imagens[2] != NULL) {
             $modeloEmpresa->inserirBDImagem($idEmpresa, $imagens[2]);
         }
+        
+        echo "<script>window.location='/minhasempresas';alert('Empresa Salva com Sucesso!');</script>";
 
-        $destino = "/paineldecontrole";
-        $this->redireciona($destino);
     }
 
     public function ViewEmpresas() {
