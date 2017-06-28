@@ -134,7 +134,7 @@ class ControleUsuario {
             $modelo = new ModeloUsuario();
             $modelo->alterarBD($usuario);
 
-            echo "<script>window.location='/login';alert('Obrigado $usuario->nome por se cadastrar, faça o login para ter acesso ao nosso Painel de Controle.');</script>";
+            echo "<script>window.location='/login';alert('Dados de $usuario->nome alterados, faça o login com os novos dados.');</script>";
         }
     }
 
