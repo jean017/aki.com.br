@@ -19,7 +19,6 @@ class Empresa {
     private $uf;
     private $cidade;
     private $email;
-    //private $foto;
 
     function __construct() {
         
@@ -148,9 +147,4 @@ class Empresa {
     function setEmail($email) {
         $this->email = $email;
     }
-
-//    function setFoto($foto) {
-//        $this->foto = $foto;
-//    }
-
 }

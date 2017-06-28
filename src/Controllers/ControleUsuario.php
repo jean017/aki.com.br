@@ -84,8 +84,6 @@ class ControleUsuario {
 
         echo "<script>window.location='/login';alert('Obrigado $usuario->nome por se cadastrar, faça o login para ter acesso ao nosso Painel de Controle.');</script>";
 
-//        $destino = "/paineldecontrole";
-//        $this->redireciona($destino);
     }
 
     public function ViewUsuario() {
@@ -139,28 +137,6 @@ class ControleUsuario {
             echo "<script>window.location='/login';alert('Obrigado $usuario->nome por se cadastrar, faça o login para ter acesso ao nosso Painel de Controle.');</script>";
         }
     }
-
-    /*
-      public function alterarUsuario() {
-      $usuario = new Usuario();
-      $usuario->setIdUsuario($this->request->get(//dados form));
-      $modelo = new ModeloUsuario();
-      $modelo->alterarBD($usuario);
-      }
-
-      public function excluirUsuario() {
-      $usuario = new Usuario();
-      $usuario->setIdUsuario($this->request->get(//dados form));
-      $modelo = new ModeloUsuario();
-      $modelo->excluirBD($usuario);
-      }
-
-      public function listarUsuario() {
-      $modelo = new ModeloUsuario();
-      $modelo->listarBD();
-      }
-     * 
-     */
 
     public function redireciona($destino) {
         $redirect = new RedirectResponse($destino);

@@ -33,12 +33,12 @@ class ControleIndex {
     }
 
     public function busca() {
-        
+
         $busca = $this->request->get('procura');
         $modelo = new ModeloIndex();
         $resultado = $modelo->listarBuscaBD($busca);
 
-       return $this->response->setContent($this->twig->render('Busca.html', array('empresas' => $resultado, 'busca' => $busca)));
+        return $this->response->setContent($this->twig->render('Busca.html', array('empresas' => $resultado, 'busca' => $busca)));
     }
 
 }
