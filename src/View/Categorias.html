@@ -16,7 +16,7 @@
         <div class="col-md-6">
             {% for categoria in opcoesCategorias %}
             <div class="col-md-4">
-                <form class="form-signin" method="post" action="\empresas">
+                <form class="form-signin" method="post" action="/empresas">
 
                     <button class="btn btn-lg btn-primary btn-block" type="submit" name="categoriaBusca" value="{{ categoria.categoria }}"> {{ categoria.categoria }} </button>
 
@@ -32,8 +32,6 @@
 <div class="container">
     <img src="../../img/pano.jpg" class="img-responsive" width="150" height="500">
 </div>
-
-<!--<font FACE="Comic Sans" SIZE="100" COLOR="red"></font>-->
 
 {% endblock %}
 
